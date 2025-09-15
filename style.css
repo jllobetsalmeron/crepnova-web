@@ -1,0 +1,955 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;500;600;700;800;900&display=swap');
+
+/* Estilos para el fondo de la página */
+.red-text {
+    color: #ff0000;
+}
+
+body.section-bg {
+    background: url('img/fons-seccio.jpg') no-repeat center center fixed;
+    background-size: cover;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+*
+{
+	font-family: 'Poppins', sans-serif;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	scroll-behavior: smooth;
+}
+
+p
+{
+	font-weight: 300;
+	color: #111;
+}
+
+.banner
+{
+	position: relative;
+	width: 100%;
+	min-height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: url(img/bg.jpg);
+	background-size: cover;
+}
+
+.banner .content
+{
+	max-width: 900px;
+	text-align: center;
+}
+
+.banner .content h2
+{
+	font-size: 5em;
+	color: #fff;
+	text-transform: capitalize;
+}
+
+.banner .content p
+{
+	font-size: 1em;
+	color: #fff;
+}
+
+.btn
+{
+	font-size: 1em;
+	color: #fff;
+	background: #ff0157;
+	display: inline-block;
+	padding: 10px 30px;
+	margin-top: 20px;
+	text-transform: uppercase;
+	text-decoration: none;
+	letter-spacing: 2px;
+	transition: 0.5s;
+}
+
+.btn:hover
+{
+	letter-spacing: 6px;
+}
+
+/* Estilos base del header */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    padding: 0 60px;
+    z-index: 10000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+/* Header transparente (estado inicial en la home) */
+.header--transparent {
+    background: transparent;
+    box-shadow: none;
+}
+
+.header--transparent .logo img {
+    filter: brightness(0) invert(1);
+    transition: filter 0.3s ease;
+}
+
+/* Header con fondo blanco (al hacer scroll) */
+.header--sticky {
+    background: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.header--sticky .logo img {
+    filter: brightness(0) invert(0);
+}
+
+header .logo {
+    color: #fff;
+    font-weight: 700;
+    font-size: 2em;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.logo-img {
+    width: 105px;
+    height: 68px;
+    margin: 0;
+    transition: filter 0.3s ease;
+    object-fit: contain;
+}
+
+/* Asegurar que el logo sea blanco en el header transparente */
+.header--transparent .logo img {
+    filter: brightness(0) invert(1) !important;
+}
+
+/* Asegurar que el logo sea negro en el header con fondo blanco */
+.header--sticky .logo img {
+    filter: brightness(0) invert(0) !important;
+}
+
+header .navigation
+{
+	display: flex;
+}
+
+header .navigation li
+{
+	list-style: none;
+	margin-left: 30px;
+}
+
+header .navigation li a
+{
+	text-decoration: none;
+	color: #fff;
+	font-weight: 400;
+}
+
+header.sticky .navigation li a
+{
+	color: #111;
+}
+
+/* Quan el header és blanc, invertim a negre */
+header.sticky .logo img { filter: invert(1); }
+
+header .navigation {
+    margin-left: 0; /* que els títols quedin enganxats al logo */
+}
+
+section
+{
+	padding: 100px;
+}
+
+.row
+{
+	position: relative;
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+}
+
+.row .col50
+{
+	position: relative;
+	width: 48%;
+}
+
+.titleText
+{
+	color: #fff;
+	font-size: 2em;
+	font-weight: 300;
+}
+
+.titleText span
+{
+	color: #ff0157;
+	font-weight: 700;
+	font-size: 1.5em;
+}
+
+.imgBx img
+{
+	max-width: 100%;
+	width: 100%;
+	height: auto;
+}
+
+.title
+{
+	text-align: center;
+}
+
+.menu .content
+{
+	display: flex;
+	justify-content: center;
+	flex-direction: row-reverse;
+	flex-wrap: wrap;
+	margin-top: 40px;
+}
+
+.menu .content .box
+{
+	width: 340px;
+	margin: 20px;
+	border: 15px solid #fff;
+	box-shadow: 0 5px 35px rgba(0,0,0,0.08);
+}
+
+.menu .content .box .imgBx
+{
+	position: relative;
+	width: 100%;
+	height: 300px;
+}
+
+.menu .content .box .imgBx img
+{
+	max-width: 100%;
+	width: 100%;
+	height: 100%;
+}
+
+.menu .content .box .text
+{
+	padding: 15px 0 5px;
+    text-align: center;
+    width: 100%;
+}
+
+.menu .content .box .text h3
+{
+	font-weight: 400;
+	color: #fff;
+    text-align: center;
+    margin: 0 auto;
+    display: block;
+    width: 100%;
+}
+
+.expert .content
+{
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	margin-top: 40px;
+}
+
+.expert .content .box
+{
+	width: 250px;
+	margin: 15px;
+}
+
+.expert .content .box .imgBx
+{
+	position: relative;
+	width: 100%;
+	height: 300px;
+}
+
+.expert .content .box .imgBx img
+{
+	max-width: 100%;
+	width: 100%;
+	height: 100%;
+}
+
+.expert .content .box .text
+{
+	padding: 15px 0 5px;
+}
+
+.expert .content .box .text h3
+{
+	font-weight: 400;
+	color: #111;
+}
+
+
+.testimonials
+{
+	background: url(img/bg2.jpg);
+	background-size: cover;
+}
+
+.white .titleText,
+.white p
+{
+	color: #fff;
+}
+
+.testimonials .content
+{
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	flex-direction: row;
+	margin-top: 40px;
+}
+
+.testimonials .content .box
+{
+	width: 340px;
+	margin: 20px;
+	padding: 40px;
+	background: #fff;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+.testimonials .content .box .imgBx img
+{
+	width: 80px;
+	height: 80px;
+	margin-bottom: 20px;
+	border-radius: 50%;
+	overflow: hidden;
+}
+
+.testimonials .content .box .text p
+{
+	color: #666;
+	font-style: italic;
+}
+
+.testimonials .content .box .text h3
+{
+	margin-top: 20px;
+	color: #111;
+	font-size: 1em;
+	color: #ff0157;
+	font-weight: 600;
+}
+
+
+.contact
+{
+	background: url(img/bg3.jpg);
+	background-size: cover;
+	padding: 120px 0 80px;  /* Added top padding to create more space */
+}
+
+/* Estilos para los títulos de las secciones */
+.title h2,
+.title .titleText,
+#contact .title h2,
+#contact .title p,
+#contact .title .titleText {
+  color: #fff !important;
+  text-shadow: 0 2px 8px rgba(0,0,0,.35);
+}
+
+/* Mantener la C en rojo como en los demás títulos */
+#contact .title .titleText span {
+  color: #ff0157 !important;
+}
+
+#contact .title p {
+  text-shadow: 0 1px 6px rgba(0,0,0,.25);
+  font-size: 1.1em;
+}
+
+.contactForm
+{
+	padding: 50px 40px;
+	background: #fff;
+	box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
+	max-width: 500px;
+	width: 80%;
+	margin: 50px auto 0;
+	border-radius: 10px;
+}
+
+.contact .contactForm h3
+{
+	color: #111;
+	font-size: 1.5em;
+	margin-bottom: 20px;
+	font-weight: 600;
+}
+
+.contactForm form
+{
+	max-width: 100%;
+	margin: 0 auto;
+}
+
+.contactForm .inputBox
+{
+	margin-bottom: 20px;
+}
+
+.contactForm .inputBox input,
+.contactForm .inputBox select,
+.contactForm .inputBox textarea
+{
+	width: 100%;
+	padding: 12px 15px;
+	font-size: 1em;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	outline: none;
+	font-size: 16px;
+	font-weight: 300;
+	resize: none;
+}
+
+.contactForm .inputBox input[type="submit"]
+{
+	font-size: 1em;
+	color: #fff;
+	background: #ff0157;
+	display: inline-block;
+	text-transform: uppercase;
+	text-decoration: none;
+	letter-spacing: 2px;
+	transition: 0.5s;
+	max-width: 100px;
+	font-weight: 500;
+	border: none;
+	cursor: pointer;
+}
+
+.copyrightText
+{
+	padding: 8px 40px;
+	border-top: 1px solid rgba(0, 0, 0, 0.1);
+	text-align: center;
+}
+
+.copyrightText p
+{
+	color: #333;
+}
+
+.copyrightText a
+{
+	color: #ff0157;
+	font-weight: 500;
+	text-decoration: none;
+}
+
+
+
+/*-------- Tablet scren ------------*/
+@media screen and (max-width:  991px)
+{
+	header,
+	header.sticky
+	{
+		height: 64px;      /* nou */
+        padding: 0 20px;   /* nou */
+	}
+
+	header .navigation
+	{
+		display: none;
+	}
+
+	header .navigation.active
+	{
+		width: 100%;
+		height: calc(100% - 68px);
+		position: fixed;
+		top: 68px;
+		left: 0;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+		background: #fff;
+	}
+
+	header .navigation li
+	{
+		margin-left: 0;
+	}
+
+	header .navigation li a
+	{
+		text-decoration: none;
+		color: #111;
+		font-size: 1.6em;
+		font-weight: 300;
+	}
+
+	.menuToggle
+	{
+		position: relative;
+		width: 40px;
+		height: 40px;
+		background: url(img/menu.png);
+		background-size: 30px;
+		background-repeat: no-repeat;
+		background-position: center;
+		cursor: pointer;
+	}
+
+	.menuToggle.active
+	{
+		background: url(img/close.png);
+		background-size: 25px;
+		background-repeat: no-repeat;
+		background-position: center;
+	}
+
+	header.sticky .menuToggle
+	{
+		filter: invert(1);
+	}
+
+	section
+	{
+		padding: 20px;
+	}
+
+	.banner .content h2
+	{
+		font-size: 3em;
+		color: #fff;
+	}
+
+	.row
+	{
+		flex-direction: column;
+	}
+
+	.row .col50
+	{
+		width: 100%;
+	}
+
+	.col50 .imgBx
+	{
+		margin-top: 30px;
+	}
+
+	.menu .content
+	{
+		margin-top: 20px;
+	}
+
+	.menu .content .box
+	{
+		margin: 10px;
+	}
+
+	.menu .content .box .imgBx
+	{
+		height: 260px;
+	}
+
+	.title
+	{
+		text-align: center;
+	}
+
+	.titleText
+	{
+		font-size: 1.8em;
+		line-height: 1.5em;
+		margin-bottom: 15px;
+		font-weight: 300;
+	}
+}
+/*-------- Tablet scren ------------*/
+
+/*--------- Mobile screen ----------*/
+@media screen and (max-width: 440px)
+{
+	header.sticky
+	{
+		padding: 10px 20px;
+	}
+
+	.testimonials .content .box
+	{
+		margin: 10px;
+		padding: 20px;
+	}
+
+	.contactForm
+	{
+		padding: 35px 40px;
+		margin-top: 20px;
+		margin-bottom: 30px;
+	}
+}
+
+/* ===== SECCIÓN DE RESTAURANTES ===== */
+.restaurants {
+    padding: 100px 0;
+}
+
+.restaurants-container {
+    max-width: 1200px;
+    margin: 30px auto 0;
+    padding: 0 20px;
+}
+
+.restaurants-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.restaurant-card {
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.restaurant-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.restaurant-img {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+}
+
+.restaurant-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.restaurant-card:hover .restaurant-img img {
+    transform: scale(1.05);
+}
+
+.restaurant-info {
+    padding: 20px;
+}
+
+.restaurant-info h3 {
+    margin: 0 0 15px 0;
+    color: #fff;
+    font-size: 1.2em;
+}
+
+.info-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 10px;
+    color: #fff;
+    font-size: 0.9em;
+    line-height: 1.4;
+}
+
+.info-item i {
+    margin-right: 10px;
+    color: #ff6b6b;
+    width: 18px;
+    text-align: center;
+    margin-top: 3px;
+}
+
+.btn-map {
+    display: inline-block !important;
+    margin-top: 15px;
+    padding: 8px 15px;
+    background-color: #ff6b6b;
+    color: #fff !important;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 0.9em;
+    border: 1px solid #ff6b6b;
+    transition: all 0.3s ease;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+.btn-map:hover {
+    background-color: #e05a5a;
+    border-color: #e05a5a;
+}
+
+.btn-map i {
+    margin-right: 5px;
+}
+
+.view-all-container {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.view-all-container .btn {
+    margin-top: 20px;
+    display: inline-block;
+    background: #ff0157;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.view-all-container .btn:hover {
+    background: #e0004d;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 0, 87, 0.3);
+}
+
+/* Estilos responsivos */
+@media (max-width: 1024px) {
+    .restaurants-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .restaurants-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .restaurant-card {
+        max-width: 500px;
+        margin: 0 auto;
+    }
+}
+
+/* ===== DEMANAR ONLINE — targeta compacta centrada ===== */
+/* DEMANAR ONLINE — targeta compacta centrada */
+.order-online {
+  padding: 80px 0 150px;
+  position: relative;
+}
+  
+  .order-hero{
+	max-width: 980px;
+	margin: 24px auto 0;
+	padding: 28px 34px;
+	background: #fff;
+	border-radius: 22px;
+	box-shadow: 0 18px 45px rgba(0,0,0,.08);
+	display: flex;
+	align-items: center;
+	gap: 32px;
+  }
+  
+  .order-visual{
+	width: 160px;
+	height: 160px;
+	position: relative;
+	flex: 0 0 auto;
+	display: grid;
+	place-items: center;
+  }
+  
+  .order-visual img{
+	max-width: 140px;
+	max-height: 140px;
+	object-fit: contain;
+	display: block;
+  }
+  
+  /* Placeholder si l'img no existeix o falla */
+  .order-visual img[src=""], 
+  .order-visual img:not([src]),
+  .order-visual img[src="img/glovo.png"]:not([complete]){
+	display: none;
+  }
+  .order-placeholder{
+	width: 140px; height: 140px;
+	border-radius: 50%;
+	background: linear-gradient(135deg,#f4f4f4,#eaeaea);
+	box-shadow: inset 0 0 0 2px #eee;
+  }
+  
+  .order-content h3{
+	margin: 0 0 6px 0;
+	font-size: 1.25rem;
+	font-weight: 700;
+	color: #111;
+  }
+  .order-content p{
+	margin: 0 0 12px 0;
+	color: #666;
+	font-size: .98rem;
+  }
+  
+  .order-cta{
+	align-self: flex-start;
+	padding: 12px 22px;
+	border-radius: 12px;
+	letter-spacing: 1px;
+  }
+  
+  /* Responsiu */
+  @media (max-width: 780px){
+	.order-hero{ flex-direction: column; text-align: left; align-items: flex-start; }
+	.order-visual{ width: 120px; height: 120px; }
+	.order-visual img, .order-placeholder{ width: 110px; height: 110px; }
+  }
+  
+/* Fons comú per a les seccions amb imatge */
+.section-bg {
+  position: relative;
+  background-image: url('img/fons-seccio.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  color: #fff;
+}
+
+/* Capa fosca per llegibilitat, ben apilada */
+.section-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,.45);
+  z-index: 0;
+}
+
+/* Assegurar que el contingut quedi per damunt de la capa fosca */
+.section-bg > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Estils específics per a la secció Demanar Online */
+#testimonials .title .titleText,
+#testimonials .title p {
+  color: #fff !important;
+}
+
+/* Text de la targeta blanca */
+.order-content h2,
+.order-content h3,
+.order-content p {
+  color: #111;
+}
+
+/* White text for specific sections */
+.about p,
+.menu .content .box .text h3,
+.restaurants .title p {
+  color: #fff;
+}
+
+/* Text colors for content */
+.restaurant-info h3,
+.restaurant-info .info-item,
+.order-content p,
+.order-content h2,
+.order-content h3 {
+  color: #111;
+}
+
+/* Navigation link colors - match header state */
+.header--transparent .navigation li a[href="#testimonials"] {
+  color: #fff !important;
+}
+
+.header--sticky .navigation li a[href="#testimonials"] {
+  color: #111 !important;
+}
+
+/* Ensure white text for section title */
+#testimonials .title .titleText,
+#testimonials .title p {
+  color: #fff !important;
+}
+
+/* Ensure black text for content inside white card */
+.order-hero {
+  color: #111;
+}
+
+.order-hero * {
+  color: inherit;
+}
+
+/* Asegurar que el contenido se muestre por encima del fondo */
+.section-bg .title,
+.section-bg .titleText,
+.section-bg .content,
+.section-bg .content * {
+    position: relative;
+    z-index: 1;
+}
+
+/* --- FIX DEMANAR ONLINE --- */
+/* Space after Demanar Online section */
+#testimonials.order-online.section-bg {
+  margin-bottom: 0 !important;       /* No margin to prevent white space */
+  padding-bottom: 160px !important;  /* Add space inside the section */
+}
+
+/* Forcem que la secció #testimonials (Demanar Online) mantingui la imatge de .section-bg */
+#testimonials.order-online.section-bg{
+  background-image: url('img/fons-seccio.jpg') !important;
+  background-repeat: no-repeat !important;
+  background-position: center center !important;
+  background-size: cover !important;
+  background-attachment: fixed !important;
+  background-color: transparent !important;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Prevent margin from next section */
+#contact { 
+  margin-top: 0 !important; 
+}
+
+/* Ens assegurem que la capa fosca sigui la nostra i no una altra */
+#testimonials.order-online.section-bg::before{
+  content: "" !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  background: rgba(0,0,0,.45) !important;
+  z-index: 0 !important;
+}

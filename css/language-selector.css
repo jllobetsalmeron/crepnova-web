@@ -1,0 +1,57 @@
+/* Language Selector Styles */
+.language-selector {
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.language-selector .lang-option {
+    color: #333;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 2px 5px;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+.language-selector .lang-option:hover {
+    color: #ff4d4d;
+    background-color: rgba(255, 77, 77, 0.1);
+}
+
+.language-selector .lang-option.active {
+    color: #ff4d4d;
+    font-weight: 600;
+}
+
+.language-selector .lang-separator {
+    color: #999;
+    font-size: 14px;
+    user-select: none;
+}
+
+/* Sticky header styles */
+header.sticky .language-selector .lang-option {
+    color: #333;
+}
+
+/* Mobile menu styles */
+@media (max-width: 992px) {
+    .language-selector {
+        margin: 10px 0;
+        justify-content: center;
+        width: 100%;
+        padding: 0 20px;
+    }
+    
+    .language-selector .lang-option {
+        font-size: 15px;
+        padding: 5px 8px;
+    }
+    
+    .language-selector .lang-separator {
+        font-size: 15px;
+    }
+}

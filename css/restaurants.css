@@ -1,0 +1,591 @@
+/* Estilos generales para la página de restaurantes */
+:root {
+    --primary-color: #ff6b6b;
+    --secondary-color: #4ecdc4;
+    --dark-color: #2d3436;
+    --light-color: #f9f9f9;
+    --text-color: #333;
+    --border-radius: 8px;
+    --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+}
+
+/* Asegurar que el contenido no quede oculto detrás del header fijo */
+body {
+    padding-top: 80px;
+}
+
+/* Estilos del header */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    padding: 0 60px;
+    z-index: 10000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+header .logo {
+    color: #000;
+    font-weight: 700;
+    font-size: 2em;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    transition: filter 0.3s ease;
+}
+
+header .logo-img {
+    filter: brightness(0) invert(0);
+    transition: filter 0.3s ease;
+    width: 105px;
+    height: 68px;
+    object-fit: contain;
+}
+
+header .navigation {
+    display: flex;
+    list-style: none;
+}
+
+header .navigation li {
+    margin-left: 30px;
+}
+
+header .navigation li a {
+    color: #333;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+header .navigation li a:hover,
+header .navigation li a.active {
+    color: #ff6b6b;
+}
+
+/* Estilos para el menú hamburguesa */
+.menuToggle {
+    display: none;
+    position: relative;
+    width: 40px;
+    height: 30px;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.menuToggle span {
+    display: block;
+    position: absolute;
+    height: 3px;
+    width: 100%;
+    background: #333;
+    border-radius: 3px;
+    opacity: 1;
+    left: 0;
+    transform: rotate(0deg);
+    transition: .25s ease-in-out;
+}
+
+.menuToggle span:nth-child(1) {
+    top: 0px;
+}
+
+.menuToggle span:nth-child(2),
+.menuToggle span:nth-child(3) {
+    top: 12px;
+}
+
+.menuToggle span:nth-child(4) {
+    top: 24px;
+}
+
+.menuToggle.active span:nth-child(1) {
+    top: 12px;
+    width: 0%;
+    left: 50%;
+}
+
+.menuToggle.active span:nth-child(2) {
+    transform: rotate(45deg);
+}
+
+.menuToggle.active span:nth-child(3) {
+    transform: rotate(-45deg);
+}
+
+.menuToggle.active span:nth-child(4) {
+    top: 12px;
+    width: 0%;
+    left: 50%;
+}
+
+/* Estilos responsivos */
+@media (max-width: 992px) {
+    header {
+        padding: 0 30px;
+    }
+    
+    .menuToggle {
+        display: block;
+    }
+    
+    header nav {
+        position: fixed;
+        top: 0;
+        left: -300px;
+        width: 300px;
+        height: 100vh;
+        background: #fff;
+        padding: 100px 30px 30px;
+        box-shadow: 2px 0 15px rgba(0,0,0,0.1);
+        transition: 0.5s;
+        z-index: 999;
+    }
+    
+    header nav.active {
+        left: 0;
+    }
+    
+    .navigation {
+        flex-direction: column;
+    }
+    
+    .navigation li {
+        margin: 15px 0;
+    }
+    
+    .navigation a {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        padding: 0 15px;
+    }
+    
+    .logo img {
+        height: 50px;
+    }
+}
+
+/* Estilos para el encabezado */
+.restaurants-hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../img/fons-seccio.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: white;
+    text-align: center;
+    padding: 140px 20px 100px;
+    margin-bottom: 40px;
+    position: relative;
+    overflow: hidden;
+}
+
+.restaurants-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.45);
+    z-index: 1;
+}
+
+.restaurants-hero .hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.restaurants-hero h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    color: #fff;
+    text-transform: capitalize;
+}
+
+.restaurants-hero h1 span {
+    color: #ff0157;
+}
+
+.restaurants-hero p {
+    color: #fff;
+    font-size: 1.2rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Contenedor principal */
+.restaurants-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px 60px;
+}
+
+/* Filtros */
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 30px;
+    align-items: center;
+}
+
+.search-box {
+    flex: 1;
+    min-width: 250px;
+    position: relative;
+}
+
+.search-box i {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #777;
+}
+
+.search-box input,
+#districtFilter {
+    width: 100%;
+    padding: 12px 20px 12px 45px;
+    border: 1px solid #ddd;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+#districtFilter {
+    padding: 12px 20px;
+    max-width: 250px;
+    cursor: pointer;
+    background-color: white;
+}
+
+.search-box input:focus,
+#districtFilter:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(255, 107, 107, 0.2);
+}
+
+/* Layout de la lista y el mapa */
+.restaurants-layout {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.restaurants-list {
+    flex: 0 0 350px;
+    max-height: 800px;
+    overflow-y: auto;
+    padding-right: 15px;
+}
+
+.restaurants-map {
+    flex: 1;
+    height: 900px;
+    position: relative;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--box-shadow);
+}
+
+.restaurant-item {
+    background: white;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    margin-bottom: 20px;
+    overflow: hidden;
+    transition: var(--transition);
+    border: 1px solid #eee;
+}
+
+.restaurant-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.restaurant-item.active {
+    border-left: 4px solid var(--primary-color);
+}
+
+.restaurant-header {
+    padding: 15px 20px;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.restaurant-header h3 {
+    margin: 0;
+    color: var(--dark-color);
+    font-size: 1.2rem;
+}
+
+.restaurant-distance {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.restaurant-details {
+    padding: 20px;
+    display: none;
+}
+
+.restaurant-item.active .restaurant-details {
+    display: block;
+}
+
+.restaurant-info {
+    margin-bottom: 15px;
+}
+
+.restaurant-info p {
+    margin: 5px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--text-color);
+}
+
+.restaurant-info i {
+    color: var(--primary-color);
+    width: 20px;
+    text-align: center;
+}
+
+.restaurant-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 8px 20px;
+    background-color: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    border-radius: var(--border-radius);
+    border: none;
+    cursor: pointer;
+    transition: var(--transition);
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+.btn:hover {
+    background-color: #ff5252;
+    transform: translateY(-2px);
+}
+
+.btn-outline {
+    background: transparent;
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+}
+
+.btn-outline:hover {
+    background-color: rgba(255, 107, 107, 0.1);
+}
+
+/* Mapa */
+.restaurants-map {
+    height: 500px;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--box-shadow);
+    position: relative;
+}
+
+#map {
+    width: 100%;
+    height: 100%;
+}
+
+.map-note {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    color: #666;
+    font-size: 0.8rem;
+    padding: 5px;
+    background-color: rgba(255, 255, 255, 0.8);
+    margin: 0;
+}
+
+/* Footer */
+footer {
+    padding: 40px 20px 20px;
+    margin-top: 60px;
+    position: relative;
+    color: white;
+}
+
+footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 0;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 40px;
+    position: relative;
+    z-index: 1;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 250px;
+}
+
+.footer-section h3 {
+    color: #ff0157;
+    margin-bottom: 20px;
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.footer-section p {
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: white;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.social-links a {
+    color: white;
+    font-size: 1.5rem;
+    transition: var(--transition);
+}
+
+.social-links a:hover {
+    color: var(--primary-color);
+    transform: translateY(-3px);
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    position: relative;
+    z-index: 1;
+    font-size: 0.9rem;
+    color: white;
+}
+
+.footer-bottom p {
+    color: white;
+    margin: 0;
+}
+
+/* Estilos para móviles */
+@media (max-width: 1200px) {
+    .restaurants-layout {
+        flex-direction: column;
+    }
+    
+    .restaurants-list {
+        flex: 0 0 auto;
+        max-height: 500px;
+        width: 100%;
+        margin-bottom: 30px;
+        padding-right: 0;
+    }
+    
+    .restaurants-map {
+        width: 100%;
+        height: 500px;
+    }
+    
+    /* Estilo de scroll personalizado para la lista de restaurantes */
+    .restaurants-list::-webkit-scrollbar {
+        width: 6px;
+    }
+    
+    .restaurants-list::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        border-radius: 10px;
+    }
+    
+    .restaurants-list::-webkit-scrollbar-thumb {
+        background: #888;
+        border-radius: 10px;
+    }
+    
+    .restaurants-list::-webkit-scrollbar-thumb:hover {
+        background: #555;
+    }
+}
+
+/* Estilos para el marcador personalizado del mapa */
+.custom-marker {
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: bold;
+    border: 2px solid white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.custom-marker:hover {
+    transform: scale(1.1);
+    z-index: 1000;
+}
+
+.custom-marker.active {
+    background-color: #ff0000;
+    transform: scale(1.2);
+    z-index: 1001;
+}

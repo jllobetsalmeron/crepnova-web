@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="ca" dir="ltr">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Crep Nova - Restaurant de creps i pizzes a Barcelona des de 1982. Gaudiu dels nostres productes artesans fets amb ingredients de qualitat.">
+	<meta name="keywords" content="creps, pizzes, restaurant, Barcelona, menjar a casa, menjar ràpid, cuina casolana">
+	<meta name="author" content="Crep Nova">
+	<title>Crep Nova | Restaurant de Creps i Pizzes a Barcelona</title>
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="css/order-online.css">
+	<script src="js/header.js" defer></script>
+</head>
+<body>
+	<header class="header header--transparent">
+		<a href="#" class="logo">
+            <img src="img/logo.png" alt="Crep Nova Logo" class="logo-img">
+        </a>
+		<div class="menuToggle" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+		<nav>
+			<ul class="navigation">
+				<li><a href="#banner" class="nav-link" onclick="toggleMenu()">Inici</a></li>
+				<li><a href="#about" class="nav-link" onclick="toggleMenu()">Sobre Nosaltres</a></li>
+				<li><a href="#menu" class="nav-link" onclick="toggleMenu()">Carta</a></li>
+				<li><a href="#restaurants" class="nav-link" onclick="toggleMenu()">Restaurants</a></li>
+				<li><a href="#testimonials" class="nav-link" onclick="toggleMenu()">Demanar Online</a></li>
+				<li><a href="#contact" class="nav-link" onclick="toggleMenu()">Contacte</a></li>
+			</ul>
+		</nav>
+	</header>
+	<script>
+		// Hacer que el header sea blanco al hacer scroll
+		window.addEventListener('scroll', function() {
+			const header = document.querySelector('header');
+			if (window.scrollY > 50) {
+				header.classList.add('sticky');
+			} else {
+				header.classList.remove('sticky');
+			}
+		});
+
+		// Función para el menú móvil
+		function toggleMenu() {
+			const menuToggle = document.querySelector('.menuToggle');
+			const navigation = document.querySelector('nav');
+			menuToggle.classList.toggle('active');
+			navigation.classList.toggle('active');
+		}
+	</script>
+	<section class="banner" id="banner">
+		<div class="content">
+			<h2>Escull Sempre Bé</h2>
+			<p>
+				Fundat al 1982, a Barcelona, CrepNova t'ofereix creps i pizzes de la millor qualitat.
+			</p>
+			<a href="#" class="btn">Veure la Carta</a>
+		</div>
+	</section>
+
+	<section class="about section-bg" id="about">
+		<div class="row">
+			<div class="col50">
+				<h2 class="titleText"><span>S</span>obre Nosaltres</h2>
+				<p>
+					Crep Nova neix a Barcelona el 1982 amb una idea clara: fer creps i pizzes amb sabor de veritat, sense presses i amb producte bo. A l’obrador preparem cada dia una massa que reposa lentament, la nostra salsa de tomàquet es cou a foc suau i coem les pizzes a alta temperatura perquè quedin cruixents per fora i esponjoses per dins.
+Les creps —dolces i salades— es fan al moment, amb una massa fina i lleugera que marida amb ingredients frescos de proximitat: formatges, verdures de temporada, embotits i salses casolanes.
+					<br><br>
+					Som un equip de gent apassionada per la cuina i el servei proper. Ens agrada que la carta sigui fàcil d’entendre, amb opcions per a tots els gustos, i que cada visita sigui còmoda: tant si véns al restaurant com si prefereixes demanar online.
+					Si busques qualitat, tracte familiar i plats que sempre venen de gust, a Crep Nova t’hi esperem. Bon profit! 🍕🥞				</p>
+			</div>
+
+			<div class="col50">
+				<div class="imgBx">
+					<img src="img/img1.jpg" alt="Interior del restaurant Crep Nova" width="600" height="400" loading="lazy">
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="menu section-bg" id="menu">
+		<div class="title">
+			<h2 class="titleText"><span>E</span>specialitats de la <span>C</span>asa</h2>
+		</div>
+
+		<div class="content">
+			<div class="box">
+				<div class="imgBx">
+					<img src="img/menu1.jpg?v=3" alt="">
+				</div>
+				<div class="text">
+					<h3>Plats Combinats</h3>
+				</div>
+			</div>
+			<div class="box">
+				<div class="imgBx">
+					<img src="img/menu2.jpg?v=3" alt="">
+				</div>
+				<div class="text">
+					<h3>Els Nostres Creps</h3>
+				</div>
+			</div>
+			<div class="box">
+				<div class="imgBx">
+					<img src="img/menu3.jpg?v=3" alt="">
+				</div>
+				<div class="text">
+					<h3>Amanides de la Casa</h3>
+				</div>
+			</div>
+			<div class="box">
+				<div class="imgBx">
+					<img src="img/menu4.jpg?v=3" alt="">
+				</div>
+				<div class="text">
+					<h3>Pizzes Casolanes</h3>
+				</div>
+			</div>
+		</div>
+		<div class="title">
+			<a href="#" class="btn">Veure-ho tot</a>
+		</div>
+	</section>
+
+	<section class="restaurants section-bg" id="restaurants">
+    <div class="title">
+        <h2 class="titleText"><span>R</span>estaurants <span>D</span>estacats</h2>
+        <p>Descobreix els Crep Nova que tens aprop teu</p>
+    </div>
+    <div class="restaurants-container">
+        <div class="restaurants-grid">
+            <!-- Restaurante 1 -->
+            <div class="restaurant-card">
+                <div class="restaurant-img">
+                    <img src="img/restaurant1.jpg" alt="Crep Nova Eixample" loading="lazy">
+                </div>
+                <div class="restaurant-info">
+                    <h3>Crep Nova Eixample</h3>
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Carrer d'Aragó, 123, 08015 Barcelona</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="far fa-clock"></i>
+                        <span>12:00 - 23:30 (Tots els dies)</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-phone"></i>
+                        <a href="tel:933123456">933 123 456</a>
+                    </div>
+                    <a href="https://maps.google.com" target="_blank" class="btn-map">
+                        <i class="fas fa-map-marked-alt"></i> Veure al mapa
+                    </a>
+                </div>
+            </div>
+
+            <!-- Restaurante 2 -->
+            <div class="restaurant-card">
+                <div class="restaurant-img">
+                    <img src="img/restaurant2.jpg" alt="Crep Nova Gràcia" loading="lazy">
+                </div>
+                <div class="restaurant-info">
+                    <h3>Crep Nova Gràcia</h3>
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Carrer de Verdi, 45, 08012 Barcelona</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="far fa-clock"></i>
+                        <span>12:00 - 23:30 (Tots els dies)</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-phone"></i>
+                        <a href="tel:932987654">932 987 654</a>
+                    </div>
+                    <a href="https://maps.google.com" target="_blank" class="btn-map">
+                        <i class="fas fa-map-marked-alt"></i> Veure al mapa
+                    </a>
+                </div>
+            </div>
+
+            <!-- Restaurante 3 -->
+            <div class="restaurant-card">
+                <div class="restaurant-img">
+                    <img src="img/restaurant3.jpg" alt="Crep Nova Poblenou" loading="lazy">
+                </div>
+                <div class="restaurant-info">
+                    <h3>Crep Nova Poblenou</h3>
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Rambla del Poblenou, 78, 08005 Barcelona</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="far fa-clock"></i>
+                        <span>12:00 - 23:30 (Tots els dies)</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-phone"></i>
+                        <a href="tel:932345678">932 345 678</a>
+                    </div>
+                    <a href="https://maps.google.com" target="_blank" class="btn-map">
+                        <i class="fas fa-map-marked-alt"></i> Veure al mapa
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="view-all-container">
+            <a href="restaurants.html" class="btn">Veure tots els restaurants</a>
+        </div>
+    </div>
+</section>
+
+<!-- SECCIÓN DEMANAR ONLINE - Versión simplificada -->
+<section id="testimonials" class="order-online section-bg">
+    <div class="title">
+        <h2 class="titleText"><span>D</span>emanar Online</h2>
+        <p>Fes la teva comanda a través de Glovo</p>
+    </div>
+    
+    <div class="order-hero">
+        <div class="order-visual">
+            <div class="glovo-logo-container">
+                <img src="img/glovo.jpg?v=3" alt="Glovo" class="glovo-logo" 
+                     onerror="this.onerror=null; this.style.display='none'; document.querySelector('.order-placeholder').style.display='flex';">
+                <div class="order-placeholder" aria-hidden="true" style="display: none;">
+                    <svg viewBox="0 0 24 24" width="60" height="60">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" fill="#FFFFFF"/>
+                        <path d="M12 6c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6zm0 10c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4z" fill="#FFFFFF"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+        
+        <div class="order-content">
+            <h3>Menjar a casa en pocs minuts</h3>
+            <p>Disfruta dels nostres plats preferits a casa teva amb només uns clics</p>
+            <a class="btn order-cta" href="https://glovoapp.com" target="_blank" rel="noopener">
+                FER COMANDA
+            </a>
+        </div>
+    </div>
+</section>
+  
+
+	<section class="contact" id="contact">
+		<div class="title">
+			<h2 class="titleText"><span>C</span>ontacte</h2>
+			<p>Envieu-nos les vostres preguntes o valoracions</p>
+		</div>
+		<div class="contactForm">
+			<h3>Deixa'ns el teu missatge</h3>
+			<form id="contacteForm" action="processar_comentari.php" method="post">
+				<div class="inputBox">
+					<input type="text" id="nom" name="nom" placeholder="El teu nom" required>
+				</div>
+				<div class="inputBox">
+					<input type="email" id="email" name="email" placeholder="El teu correu electrònic" required>
+				</div>
+				<div class="inputBox">
+					<select id="tipusMissatge" required>
+						<option value="">Tria el tipus de missatge</option>
+						<option value="consulta">Consulta</option>
+						<option value="resenya">Valoració/Resenya</option>
+						<option value="suggeriment">Suggeriment</option>
+						<option value="altre">Altres</option>
+					</select>
+				</div>
+				<div class="inputBox">
+					<textarea id="missatge" placeholder="El teu missatge" required></textarea>
+				</div>
+				<div class="inputBox">
+					<label class="puntuacio-label">Puntuació (opcional):</label>
+					<div class="puntuacio">
+						<span data-valor="1">★</span>
+						<span data-valor="2">★</span>
+						<span data-valor="3">★</span>
+						<span data-valor="4">★</span>
+						<span data-valor="5">★</span>
+					</div>
+					<input type="hidden" id="puntuacio" value="0">
+				</div>
+				<div class="inputBox">
+					<button type="submit" class="btn" id="botoEnviar">Enviar missatge</button>
+					<div id="missatgeFeedback" style="margin-top: 15px; display: none;"></div>
+				</div>
+			</form>
+		</div>
+	</section>
+
+	<div class="copyrightText">
+		<p>Copyright 2025. Sota la reserva de tots els drets.</p>
+	</div>
+
+	<script src="script.js" defer></script>
+</body>
+</html>
