@@ -203,9 +203,9 @@ function addRestaurantsToMap() {
             icon: L.divIcon({
                 className: 'custom-marker',
                 html: restaurant.id,
-                iconSize: [30, 30],
-                iconAnchor: [15, 30],
-                popupAnchor: [0, -30]
+                iconSize: [26, 26],
+                iconAnchor: [13, 26],
+                popupAnchor: [0, -26]
             })
         });
         

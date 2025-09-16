@@ -7,13 +7,14 @@
     <title>Tots els Restaurants Crep Nova | Barcelona</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="css/restaurants.css">
+    <script src="js/header.js" defer></script>
     <!-- Font Awesome para iconos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- Leaflet CSS para el mapa -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
 </head>
 <body class="section-bg">
-    <header>
+    <header class="header header--transparent">
         <a href="index.html" class="logo">
             <img src="img/logo.png" alt="Crep Nova Logo" class="logo-img">
         </a>
@@ -28,31 +29,11 @@
                 <li><a href="index.html#about" class="nav-link" onclick="toggleMenu()">Sobre Nosaltres</a></li>
                 <li><a href="index.html#menu" class="nav-link" onclick="toggleMenu()">Carta</a></li>
                 <li><a href="#" class="nav-link active" onclick="toggleMenu()">Restaurants</a></li>
-                <li><a href="index.html#testimonials" class="nav-link" onclick="toggleMenu()">Demanar Online</a></li>
+                <li><a href="order-online.html" class="nav-link" onclick="toggleMenu()">Demanar Online</a></li>
                 <li><a href="index.html#contact" class="nav-link" onclick="toggleMenu()">Contacte</a></li>
             </ul>
         </nav>
     </header>
-
-    <script>
-        // Hacer que el header sea blanco al hacer scroll
-        window.addEventListener('scroll', function() {
-            const header = document.querySelector('header');
-            if (window.scrollY > 50) {
-                header.classList.add('sticky');
-            } else {
-                header.classList.remove('sticky');
-            }
-        });
-
-        // Función para el menú móvil
-        function toggleMenu() {
-            const menuToggle = document.querySelector('.menuToggle');
-            const navigation = document.querySelector('nav');
-            menuToggle.classList.toggle('active');
-            navigation.classList.toggle('active');
-        }
-    </script>
 
     <section class="restaurants-hero">
         <div class="hero-content">

@@ -8,8 +8,7 @@
 	<meta name="author" content="Crep Nova">
 	<title>Crep Nova | Restaurant de Creps i Pizzes a Barcelona</title>
 	<link rel="stylesheet" href="style.css">
-	<link rel="stylesheet" href="css/order-online.css">
-	<script src="js/header.js" defer></script>
+		<script src="js/header.js" defer></script>
 </head>
 <body>
 	<header class="header header--transparent">
@@ -27,7 +26,7 @@
 				<li><a href="#about" class="nav-link" onclick="toggleMenu()">Sobre Nosaltres</a></li>
 				<li><a href="#menu" class="nav-link" onclick="toggleMenu()">Carta</a></li>
 				<li><a href="#restaurants" class="nav-link" onclick="toggleMenu()">Restaurants</a></li>
-				<li><a href="#testimonials" class="nav-link" onclick="toggleMenu()">Demanar Online</a></li>
+				<li><a href="order-online.html" class="nav-link" onclick="toggleMenu()">Demanar Online</a></li>
 				<li><a href="#contact" class="nav-link" onclick="toggleMenu()">Contacte</a></li>
 			</ul>
 		</nav>
@@ -53,7 +52,7 @@
 	</script>
 	<section class="banner" id="banner">
 		<div class="content">
-			<h2>Escull Sempre Bé</h2>
+			<h2 class="fixed-title">Escull Sempre B&eacute;</h2>
 			<p>
 				Fundat al 1982, a Barcelona, CrepNova t'ofereix creps i pizzes de la millor qualitat.
 			</p>
@@ -81,47 +80,64 @@ Les creps —dolces i salades— es fan al moment, amb una massa fina i lleugera
 		</div>
 	</section>
 
-	<section class="menu section-bg" id="menu">
+	<section class="specialties section-bg" id="menu">
 		<div class="title">
 			<h2 class="titleText"><span>E</span>specialitats de la <span>C</span>asa</h2>
+			<p class="subtitle">Descobreix les nostres creacions més destacades</p>
 		</div>
 
-		<div class="content">
-			<div class="box">
-				<div class="imgBx">
-					<img src="img/menu1.jpg?v=3" alt="">
+		<div class="specialties-container">
+			<div class="specialty-card">
+				<div class="specialty-img">
+					<img src="img/menu4.jpg" alt="Pizzes Casolanes" loading="lazy">
+					<div class="specialty-overlay"></div>
 				</div>
-				<div class="text">
-					<h3>Plats Combinats</h3>
-				</div>
-			</div>
-			<div class="box">
-				<div class="imgBx">
-					<img src="img/menu2.jpg?v=3" alt="">
-				</div>
-				<div class="text">
-					<h3>Els Nostres Creps</h3>
-				</div>
-			</div>
-			<div class="box">
-				<div class="imgBx">
-					<img src="img/menu3.jpg?v=3" alt="">
-				</div>
-				<div class="text">
-					<h3>Amanides de la Casa</h3>
-				</div>
-			</div>
-			<div class="box">
-				<div class="imgBx">
-					<img src="img/menu4.jpg?v=3" alt="">
-				</div>
-				<div class="text">
+				<div class="specialty-content">
 					<h3>Pizzes Casolanes</h3>
+					<p>Les nostres pizzes artesanes amb massa fermentada i ingredients d'alta qualitat.</p>
+					<a href="#" class="specialty-btn">Veure pizzes <span>→</span></a>
+				</div>
+			</div>
+
+			<div class="specialty-card">
+				<div class="specialty-img">
+					<img src="img/menu2.jpg" alt="Els Nostres Creps" loading="lazy">
+					<div class="specialty-overlay"></div>
+				</div>
+				<div class="specialty-content">
+					<h3>Els Nostres Creps</h3>
+					<p>Deliciosos creps dolços i salats, fets al moment amb massa casolana.</p>
+					<a href="#" class="specialty-btn">Veure creps <span>→</span></a>
+				</div>
+			</div>
+
+			<div class="specialty-card">
+				<div class="specialty-img">
+					<img src="img/menu3.jpg" alt="Amanides de la Casa" loading="lazy">
+					<div class="specialty-overlay"></div>
+				</div>
+				<div class="specialty-content">
+					<h3>Amanides de la Casa</h3>
+					<p>Refresquents i saludables, amb ingredients de temporada i nostres salses exclusives.</p>
+					<a href="#" class="specialty-btn">Veure amanides <span>→</span></a>
+				</div>
+			</div>
+
+			<div class="specialty-card">
+				<div class="specialty-img">
+					<img src="img/menu1.jpg" alt="Plats Combinats" loading="lazy">
+					<div class="specialty-overlay"></div>
+				</div>
+				<div class="specialty-content">
+					<h3>Plats Combinats</h3>
+					<p>Els nostres millors plats combinats amb ingredients frescos i casolans.</p>
+					<a href="#" class="specialty-btn">Veure plats <span>→</span></a>
 				</div>
 			</div>
 		</div>
-		<div class="title">
-			<a href="#" class="btn">Veure-ho tot</a>
+
+		<div class="cta-container">
+			<a href="#" class="btn btn-outline">Descobreix la nostra carta completa</a>
 		</div>
 	</section>
 
@@ -207,43 +223,12 @@ Les creps —dolces i salades— es fan al moment, amb una massa fina i lleugera
                 </div>
             </div>
         </div>
-        <div class="view-all-container">
-            <a href="restaurants.html" class="btn">Veure tots els restaurants</a>
+        <div class="cta-container">
+            <a href="restaurants.html" class="btn btn-outline">Veure tots els restaurants</a>
         </div>
     </div>
 </section>
 
-<!-- SECCIÓN DEMANAR ONLINE - Versión simplificada -->
-<section id="testimonials" class="order-online section-bg">
-    <div class="title">
-        <h2 class="titleText"><span>D</span>emanar Online</h2>
-        <p>Fes la teva comanda a través de Glovo</p>
-    </div>
-    
-    <div class="order-hero">
-        <div class="order-visual">
-            <div class="glovo-logo-container">
-                <img src="img/glovo.jpg?v=3" alt="Glovo" class="glovo-logo" 
-                     onerror="this.onerror=null; this.style.display='none'; document.querySelector('.order-placeholder').style.display='flex';">
-                <div class="order-placeholder" aria-hidden="true" style="display: none;">
-                    <svg viewBox="0 0 24 24" width="60" height="60">
-                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" fill="#FFFFFF"/>
-                        <path d="M12 6c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6zm0 10c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4z" fill="#FFFFFF"/>
-                    </svg>
-                </div>
-            </div>
-        </div>
-        
-        <div class="order-content">
-            <h3>Menjar a casa en pocs minuts</h3>
-            <p>Disfruta dels nostres plats preferits a casa teva amb només uns clics</p>
-            <a class="btn order-cta" href="https://glovoapp.com" target="_blank" rel="noopener">
-                FER COMANDA
-            </a>
-        </div>
-    </div>
-</section>
-  
 
 	<section class="contact" id="contact">
 		<div class="title">
@@ -290,9 +275,11 @@ Les creps —dolces i salades— es fan al moment, amb una massa fina i lleugera
 		</div>
 	</section>
 
-	<div class="copyrightText">
-		<p>Copyright 2025. Sota la reserva de tots els drets.</p>
-	</div>
+	<footer>
+		<div class="copyrightText">
+			<p>&copy; 2025 Crep Nova. Sota la reserva de tots els drets.</p>
+		</div>
+	</footer>
 
 	<script src="script.js" defer></script>
 </body>

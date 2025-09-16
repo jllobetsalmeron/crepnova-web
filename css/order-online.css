@@ -1,109 +1,505 @@
-/* Estilos para la sección de Demanar Online - Versión simplificada */
-.order-online {
-    padding: 60px 20px 40px;
-    background: #f9f9f9;
+/* Page background */
+body.order-page {
+    background: url('../img/fons-seccio.jpg') no-repeat center center fixed;
+    background-size: cover;
+    min-height: 100vh;
+}
+
+/* Garantim header fixe també en aquesta pàgina, passi el que passi */
+header { 
+    position: fixed !important; 
+    top: 0 !important; 
+    left: 0 !important; 
+    right: 0 !important;
+    width: 100% !important;
+    height: 80px !important;
+    z-index: 9999 !important; 
+    background-color: transparent !important;
+    transition: all 0.3s ease !important;
+}
+
+/* Header con fondo blanco al hacer scroll */
+header.sticky,
+header.header--sticky {
+    background-color: #fff !important;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1) !important;
+}
+
+/* Estilos para el header transparente */
+header {
+    /* Texto blanco cuando el header es transparente */
+    color: white !important;
+}
+
+/* Cambiar color de los enlaces cuando el header es transparente */
+header:not(.sticky):not(.header--sticky) .nav-link,
+header:not(.sticky):not(.header--sticky) .logo {
+    color: white !important;
+}
+
+/* Cambiar color de los enlaces cuando el header tiene fondo blanco */
+header.sticky .nav-link,
+header.header--sticky .nav-link,
+header.sticky .logo,
+header.header--sticky .logo {
+    color: #333 !important;
+}
+
+/* Cambiar color del menú hamburguesa */
+header:not(.sticky):not(.header--sticky) .menuToggle span {
+    background-color: white !important;
+}
+
+header.sticky .menuToggle span,
+header.header--sticky .menuToggle span {
+    background-color: #333 !important;
+}
+
+/* Espai superior perquè el contingut no quedi sota el header */
+body.section-bg { 
+    padding-top: 100px !important; 
+    position: relative;
+    z-index: 1;
+}
+
+@media (max-width: 991px) { 
+    body.section-bg { 
+        padding-top: 80px !important; 
+    } 
+    
+    header {
+        height: 64px !important;
+        padding: 0 20px !important;
+    }
+    
+    .logo-img {
+        max-height: 40px !important;
+    }
+}
+
+/* Main Container */
+.order-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Hero Section */
+.restaurants-hero {
+    position: relative;
+    color: white;
+    text-align: center;
+    padding: 140px 20px 100px;
+    margin-top: 80px;
+}
+
+.restaurants-hero .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6));
+    z-index: 0;
+}
+
+.restaurants-hero .hero-content {
+    position: relative;
+    z-index: 1;
+}
+
+.restaurants-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.45);
+    z-index: 1;
+}
+
+.restaurants-hero .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    margin: 0 auto 40px;
+}
+
+.restaurants-hero h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    color: #fff;
+    text-transform: capitalize;
+}
+
+.restaurants-hero h1 span {
+    color: #ff0157; /* Title letters keep original color */
+}
+
+.restaurants-hero p {
+    color: #fff;
+    font-size: 1.2rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Removed duplicate .hero-content styles */
+
+/* Delivery Options */
+.delivery-options {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin: 60px 0;
+    flex-wrap: wrap;
+}
+
+.option-card {
+    background: white;
+    border-radius: 10px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    transition: transform 0.3s ease;
+}
+
+.option-card:hover {
+    transform: translateY(-5px);
+}
+
+.option-icon {
+    font-size: 2.5rem;
+    color: #ff6b6b;
+    margin-bottom: 20px;
+}
+
+.option-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.option-card p {
+    color: #666;
+    margin-bottom: 25px;
+    line-height: 1.6;
+}
+
+/* Buttons */
+.btn-primary, .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 25px;
+    border-radius: 30px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.btn-primary {
+    background: #ff6b6b;
+    color: white;
+}
+
+.btn-secondary {
+    background: #f8f9fa;
+    color: #333;
+    border: 1px solid #ddd;
+}
+
+.btn-primary:hover {
+    background: #e0004d;
+    transform: translateY(-2px);
+}
+
+.btn-secondary:hover {
+    border-color: #ff6b6b;
+    color: #ff6b6b;
+    transform: translateY(-2px);
+}
+
+.platform-logo {
+    height: 32px;
+    width: auto;
+    margin-right: 12px;
+    vertical-align: middle;
+}
+
+/* How it Works Section */
+.how-it-works {
+    text-align: center;
+    margin: 80px 0;
+    color: #fff;
+}
+
+.how-it-works h2 {
+    font-size: 2.2rem;
+    margin-bottom: 50px;
+    color: #fff;
+}
+
+.steps {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.step {
+    flex: 1;
+    min-width: 200px;
+    max-width: 300px;
+    text-align: center;
+    padding: 20px;
+}
+
+.step-number {
+    width: 50px;
+    height: 50px;
+    background: #ff6b6b;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 0 auto 20px;
+}
+
+.step h4 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.step p {
+    color: #eee;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.step-arrow {
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
+    color: #999;
+    font-size: 1.5rem;
+}
+
+/* Popular Dishes */
+.popular-dishes {
+    margin: 80px 0;
     text-align: center;
 }
 
-.order-online .title {
-    margin-bottom: 30px;
+.popular-dishes h2 {
+    font-size: 2.2rem;
+    margin-bottom: 50px;
+    color: #333;
 }
 
-.order-online .titleText {
-    font-size: 2em;
-    margin-bottom: 10px;
-}
-
-.order-online .title p {
-    color: #666;
-    margin: 0;
-}
-
-.order-hero {
-    max-width: 700px;
-    margin: 0 auto;
-    background: white;
-    border-radius: 12px;
-    padding: 30px 40px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-}
-
-.order-visual {
-    margin-bottom: 10px;
-}
-
-.glovo-logo-container {
-    width: 140px;
-    height: 140px;
-    margin: 0 auto 5px;
+.dishes-grid {
     display: flex;
     justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-    overflow: hidden;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.dish-card {
     background: white;
-    padding: 8px;
-    box-shadow: 0 1px 5px rgba(0,0,0,0.1);
-}
-
-.glovo-logo {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    border-radius: 50%;
-}
-
-.order-content h3 {
-    font-size: 1.5em;
-    color: #333;
-    margin: 0 0 15px 0;
-    white-space: nowrap;
+    border-radius: 10px;
     overflow: hidden;
-    text-overflow: ellipsis;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 350px;
+    transition: transform 0.3s ease;
 }
 
-.order-content p {
+.dish-card:hover {
+    transform: translateY(-5px);
+}
+
+.dish-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.dish-card h4 {
+    font-size: 1.2rem;
+    margin: 20px 0 10px;
+    color: #333;
+}
+
+.dish-card p {
     color: #666;
-    margin: 0 0 10px 0;
-    line-height: 1.5;
-    font-size: 0.95em;
-    max-width: 500px;
-    margin-left: auto;
-    margin-right: auto;
+    padding: 0 20px 20px;
+    font-size: 0.95rem;
+    line-height: 1.6;
 }
 
-.order-cta {
-    display: inline-block;
-    background: #00A482;
-    color: white;
-    padding: 10px 25px;
-    border-radius: 25px;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 0.9em;
-    transition: background 0.3s ease;
+/* Responsive Styles */
+@media (max-width: 992px) {
+    .delivery-options {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .option-card {
+        width: 100%;
+        max-width: 500px;
+    }
+    
+    .steps {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .step {
+        max-width: 100%;
+    }
+    
+    .step-arrow {
+        transform: rotate(90deg);
+        padding: 15px 0;
+    }
 }
 
-.order-cta:hover {
-    background: #008c6d;
-}
-
-/* Estilos responsivos */
 @media (max-width: 768px) {
-    .order-online {
-        padding: 40px 15px 30px;
+    .order-hero h1 {
+        font-size: 2.2rem;
     }
     
-    .order-online .titleText {
-        font-size: 1.7em;
+    .order-hero p {
+        font-size: 1rem;
     }
     
-    .glovo-logo-container {
-        width: 100px;
-        height: 100px;
+    .dishes-grid {
+        flex-direction: column;
+        align-items: center;
     }
     
-    .order-content h3 {
-        font-size: 1.3em;
+    .dish-card {
+        width: 100%;
+        max-width: 400px;
     }
+    
+    .how-it-works h2,
+    .popular-dishes h2 {
+        font-size: 1.8rem;
+    }
+}
+
+/* Red text for highlighted letters */
+.red-text {
+    color: #ff6b6b;
+}
+
+/* Footer */
+footer.section-bg {
+    background: rgba(0, 0, 0, 0.45);
+    padding: 40px 20px 20px;
+    margin-top: 60px;
+    position: relative;
+    color: white;
+}
+
+footer.section-bg::before {
+    display: none; /* Remove any previous background */
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    position: relative;
+    z-index: 1;
+    padding: 20px 0;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 250px;
+}
+
+.footer-section h3 {
+    color: #fff;
+    margin-bottom: 20px;
+    font-size: 1.3rem;
+    font-weight: 600;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.footer-section h3::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 50px;
+    height: 2px;
+    background: #ff6b6b;
+}
+
+.footer-section p {
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    color: #fff;
+}
+
+.footer-section i {
+    margin-right: 10px;
+    color: #ff6b6b;
+    width: 20px;
+    text-align: center;
+}
+
+.social-links {
+    display: flex;
+    gap: 5px;
+    margin-top: 20px;
+}
+
+.social-links a {
+    color: #fff;
+    font-size: 1.5em;
+    margin-right: 5px;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: #ff6b6b;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-bottom p {
+    color: #fff;
+    margin: 0;
+    font-size: 0.9em;
+}
+
+/* Ensure proper spacing */
+section {
+    padding: 60px 0;
 }

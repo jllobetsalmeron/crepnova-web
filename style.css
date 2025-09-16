@@ -51,7 +51,22 @@ p
 	font-size: 5em;
 	color: #fff;
 	text-transform: capitalize;
+	margin: 0;
 }
+
+/* Fixed title styles */
+.fixed-title {
+    font-size: 5em;
+    color: #fff;
+    text-transform: capitalize;
+    margin: 0 0 20px 0;
+    pointer-events: none; /* Makes the title non-interactive */
+    user-select: none; /* Prevents text selection */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    transition: none; /* Remove any transitions */
+}
+
+/* Remove old banner title link styles as they're no longer needed */
 
 .banner .content p
 {
@@ -78,6 +93,49 @@ p
 	letter-spacing: 6px;
 }
 
+/* Copyright styles */
+footer .copyrightText {
+  padding: 12px 40px;
+  text-align: center;
+  background: #000;                            /* barra negra fixa */
+  border-top: 1px solid rgba(255,255,255,.35); /* línia blanca a sobre */
+  margin-top: 0;                               /* sense espai extra */
+}
+
+footer .copyrightText p {
+  margin: 0;
+  color: #fff;                                 /* text blanc */
+  font-size: .95rem;
+}
+
+.puntuacio-label {
+    color: #000000 !important;
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.puntuacio {
+    color: #000000 !important;
+    font-size: 1.2em;
+    letter-spacing: 2px;
+    margin-top: 5px;
+}
+
+.puntuacio span {
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.puntuacio span:hover {
+    transform: scale(1.2);
+}
+
+.footer-bottom p {
+    color: white;
+    margin: 0;
+}
+
 /* Estilos base del header */
 header {
     position: fixed;
@@ -86,7 +144,7 @@ header {
     width: 100%;
     height: 80px;
     padding: 0 60px;
-    z-index: 10000;
+    z-index: 9999; /* Asegura que el header esté por encima de todo */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -362,11 +420,13 @@ section
 }
 
 
-.contact
-{
-	background: url(img/bg3.jpg);
-	background-size: cover;
-	padding: 120px 0 80px;  /* Added top padding to create more space */
+.contact {
+    position: relative;
+    background: url(img/bg3.jpg) no-repeat center center;
+    background-size: cover;
+    padding: 60px 0 30px;  /* Reduced bottom padding */
+    color: #fff;
+    overflow: hidden;  /* Prevents layout issues */
 }
 
 /* Estilos para los títulos de las secciones */
@@ -389,15 +449,16 @@ section
   font-size: 1.1em;
 }
 
-.contactForm
-{
-	padding: 50px 40px;
-	background: #fff;
-	box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
-	max-width: 500px;
-	width: 80%;
-	margin: 50px auto 0;
-	border-radius: 10px;
+.contactForm {
+    padding: 50px 40px;
+    background: #fff;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    width: 80%;
+    margin: 30px auto;  
+    border-radius: 10px;
+    position: relative;
+    z-index: 2;
 }
 
 .contact .contactForm h3
@@ -452,9 +513,10 @@ section
 
 .copyrightText
 {
-	padding: 8px 40px;
+	padding: 50px 40px;
 	border-top: 1px solid rgba(0, 0, 0, 0.1);
 	text-align: center;
+	margin-top: 50px;
 }
 
 .copyrightText p
@@ -499,6 +561,16 @@ section
 		flex-direction: column;
 		background: #fff;
 	}
+
+	.title {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 0 0 20px 0;
+    padding-top: 20px;
+}
 
 	header .navigation li
 	{
@@ -920,6 +992,211 @@ section
 
 /* --- FIX DEMANAR ONLINE --- */
 /* Space after Demanar Online section */
+/* Specialties Section */
+.specialties {
+    padding: 100px 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.specialties .title {
+    text-align: center;
+    max-width: 1200px;
+    margin: 0 auto 50px;
+}
+
+.specialties .subtitle {
+    color: #fff;
+    font-size: 1.2em;
+    margin-top: 15px;
+    opacity: 0.9;
+}
+
+.specialties-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.specialty-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.specialty-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+.specialty-img {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+}
+
+.specialty-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.specialty-card:hover .specialty-img img {
+    transform: scale(1.05);
+}
+
+.specialty-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.7));
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+.specialty-card:hover .specialty-overlay {
+    opacity: 0.5;
+}
+
+.specialty-content {
+    padding: 20px;
+    color: #fff;
+}
+
+.specialty-content h3 {
+    font-size: 1.3em;
+    margin-bottom: 8px;
+    color: #fff;
+    font-weight: 600;
+    position: relative;
+    display: inline-block;
+    line-height: 1.3;
+}
+
+.specialty-content h3::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 40px;
+    height: 3px;
+    background: #ff0157;
+    transition: width 0.3s ease;
+}
+
+.specialty-card:hover .specialty-content h3::after {
+    width: 80px;
+}
+
+.specialty-content p {
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 15px;
+    line-height: 1.4;
+    font-size: 0.85em;
+}
+
+.specialty-btn {
+    display: inline-flex;
+    align-items: center;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+    padding-bottom: 5px;
+}
+
+.specialty-btn::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background: #ff0157;
+    transition: width 0.3s ease;
+}
+
+.specialty-btn:hover {
+    color: #ff0157;
+}
+
+.specialty-btn:hover::after {
+    width: 100%;
+}
+
+.specialty-btn span {
+    margin-left: 5px;
+    transition: transform 0.3s ease;
+}
+
+.specialty-btn:hover span {
+    transform: translateX(5px);
+}
+
+.cta-container {
+    text-align: center;
+    margin-top: 60px;
+}
+
+.btn-outline {
+    background: transparent;
+    border: 2px solid #ff0157;
+    color: #fff;
+    transition: all 0.3s ease;
+}
+
+.btn-outline:hover {
+    background: #ff0157;
+    letter-spacing: 2px;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .specialties-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .specialties {
+        padding: 80px 15px;
+    }
+    
+    .specialty-card {
+        margin-bottom: 30px;
+    }
+    
+    .specialty-img {
+        height: 200px;
+    }
+    
+    .specialty-content {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 576px) {
+    .specialties-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .specialty-img {
+        height: 250px;
+    }
+}
+
 #testimonials.order-online.section-bg {
   margin-bottom: 0 !important;       /* No margin to prevent white space */
   padding-bottom: 160px !important;  /* Add space inside the section */
