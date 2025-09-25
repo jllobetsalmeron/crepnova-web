@@ -8,7 +8,9 @@
 	<meta name="author" content="Crep Nova">
 	<title>Crep Nova | Restaurant de Creps i Pizzes a Barcelona</title>
 	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHq6bKX3C1e99eYzlPqVh5l3suu6IpVY9YtCQXDpUe1koRaSPo6e7i0rGUNShypuKyXK6Yag==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 		<script src="js/header.js" defer></script>
+		<script src="js/contact-form.js" defer></script>
 </head>
 <body>
 	<header class="header header--transparent">
@@ -31,25 +33,6 @@
 			</ul>
 		</nav>
 	</header>
-	<script>
-		// Hacer que el header sea blanco al hacer scroll
-		window.addEventListener('scroll', function() {
-			const header = document.querySelector('header');
-			if (window.scrollY > 50) {
-				header.classList.add('sticky');
-			} else {
-				header.classList.remove('sticky');
-			}
-		});
-
-		// Función para el menú móvil
-		function toggleMenu() {
-			const menuToggle = document.querySelector('.menuToggle');
-			const navigation = document.querySelector('nav');
-			menuToggle.classList.toggle('active');
-			navigation.classList.toggle('active');
-		}
-	</script>
 	<section class="banner" id="banner">
 		<div class="content">
 			<h2 class="fixed-title">Escull Sempre B&eacute;</h2>
@@ -151,13 +134,13 @@ Les creps —dolces i salades— es fan al moment, amb una massa fina i lleugera
             <!-- Restaurante 1 -->
             <div class="restaurant-card">
                 <div class="restaurant-img">
-                    <img src="img/restaurant1.jpg" alt="Crep Nova Eixample" loading="lazy">
+                    <img src="img/restaurant1.jpg" alt="Crep Nova Dr. Fleming" loading="lazy">
                 </div>
                 <div class="restaurant-info">
-                    <h3>Crep Nova Eixample</h3>
+                    <h3>Crep Nova Dr. Fleming</h3>
                     <div class="info-item">
                         <i class="fas fa-map-marker-alt"></i>
-                        <span>Carrer d'Aragó, 123, 08015 Barcelona</span>
+                        <span>Doctor Fleming 15, 08017 Barcelona</span>
                     </div>
                     <div class="info-item">
                         <i class="far fa-clock"></i>
@@ -165,9 +148,9 @@ Les creps —dolces i salades— es fan al moment, amb una massa fina i lleugera
                     </div>
                     <div class="info-item">
                         <i class="fas fa-phone"></i>
-                        <a href="tel:933123456">933 123 456</a>
+                        <a href="tel:931886406">931 886 406</a>
                     </div>
-                    <a href="https://maps.google.com" target="_blank" class="btn-map">
+                    <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" class="btn-map">
                         <i class="fas fa-map-marked-alt"></i> Veure al mapa
                     </a>
                 </div>
@@ -176,13 +159,13 @@ Les creps —dolces i salades— es fan al moment, amb una massa fina i lleugera
             <!-- Restaurante 2 -->
             <div class="restaurant-card">
                 <div class="restaurant-img">
-                    <img src="img/restaurant2.jpg" alt="Crep Nova Gràcia" loading="lazy">
+                    <img src="img/restaurant2.jpg" alt="Crep Nova Pedralbes" loading="lazy">
                 </div>
                 <div class="restaurant-info">
-                    <h3>Crep Nova Gràcia</h3>
+                    <h3>Crep Nova Pedralbes</h3>
                     <div class="info-item">
                         <i class="fas fa-map-marker-alt"></i>
-                        <span>Carrer de Verdi, 45, 08012 Barcelona</span>
+                        <span>Dr. August Pi i Sunyer 12, 08034 Barcelona</span>
                     </div>
                     <div class="info-item">
                         <i class="far fa-clock"></i>
@@ -190,9 +173,9 @@ Les creps —dolces i salades— es fan al moment, amb una massa fina i lleugera
                     </div>
                     <div class="info-item">
                         <i class="fas fa-phone"></i>
-                        <a href="tel:932987654">932 987 654</a>
+                        <a href="tel:937648836">937 648 836</a>
                     </div>
-                    <a href="https://maps.google.com" target="_blank" class="btn-map">
+                    <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" class="btn-map">
                         <i class="fas fa-map-marked-alt"></i> Veure al mapa
                     </a>
                 </div>
@@ -201,13 +184,13 @@ Les creps —dolces i salades— es fan al moment, amb una massa fina i lleugera
             <!-- Restaurante 3 -->
             <div class="restaurant-card">
                 <div class="restaurant-img">
-                    <img src="img/restaurant3.jpg" alt="Crep Nova Poblenou" loading="lazy">
+                    <img src="img/restaurant3.jpg" alt="Crep Nova Sarrià" loading="lazy">
                 </div>
                 <div class="restaurant-info">
-                    <h3>Crep Nova Poblenou</h3>
+                    <h3>Crep Nova Sarrià</h3>
                     <div class="info-item">
                         <i class="fas fa-map-marker-alt"></i>
-                        <span>Rambla del Poblenou, 78, 08005 Barcelona</span>
+                        <span>Passeig Bonanova 104, 08017 Barcelona</span>
                     </div>
                     <div class="info-item">
                         <i class="far fa-clock"></i>
@@ -215,9 +198,9 @@ Les creps —dolces i salades— es fan al moment, amb una massa fina i lleugera
                     </div>
                     <div class="info-item">
                         <i class="fas fa-phone"></i>
-                        <a href="tel:932345678">932 345 678</a>
+                        <a href="tel:932059646">932 059 646</a>
                     </div>
-                    <a href="https://maps.google.com" target="_blank" class="btn-map">
+                    <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" class="btn-map">
                         <i class="fas fa-map-marked-alt"></i> Veure al mapa
                     </a>
                 </div>
@@ -235,44 +218,54 @@ Les creps —dolces i salades— es fan al moment, amb una massa fina i lleugera
 			<h2 class="titleText"><span>C</span>ontacte</h2>
 			<p>Envieu-nos les vostres preguntes o valoracions</p>
 		</div>
-		<div class="contactForm">
-			<h3>Deixa'ns el teu missatge</h3>
-			<form id="contacteForm" action="processar_comentari.php" method="post">
-				<div class="inputBox">
-					<input type="text" id="nom" name="nom" placeholder="El teu nom" required>
+	<div class="contactForm">
+		<h3>Deixa'ns el teu missatge</h3>
+		<form id="contacteForm" action="processar_comentari.php" method="post" novalidate>
+			<div class="inputBox">
+				<input type="text" id="nom" name="nom" placeholder="El teu nom" required maxlength="100">
+			</div>
+			<div class="inputBox">
+				<input type="email" id="email" name="email" placeholder="El teu correu electrònic" required maxlength="150">
+			</div>
+			<div class="inputBox">
+				<select id="tipusMissatge" name="tipus" required>
+					<option value="">Tria el tipus de missatge</option>
+					<option value="consulta">Consulta</option>
+					<option value="resenya">Valoració/Resenya</option>
+					<option value="suggeriment">Suggeriment</option>
+					<option value="altres">Altres</option>
+				</select>
+			</div>
+			<div class="inputBox">
+				<textarea id="missatge" name="missatge" placeholder="El teu missatge" required maxlength="2000"></textarea>
+			</div>
+			<div class="inputBox">
+				<label class="puntuacio-label">Puntuació (opcional):</label>
+				<div class="puntuacio">
+					<span data-valor="1">★</span>
+					<span data-valor="2">★</span>
+					<span data-valor="3">★</span>
+					<span data-valor="4">★</span>
+					<span data-valor="5">★</span>
 				</div>
-				<div class="inputBox">
-					<input type="email" id="email" name="email" placeholder="El teu correu electrònic" required>
-				</div>
-				<div class="inputBox">
-					<select id="tipusMissatge" required>
-						<option value="">Tria el tipus de missatge</option>
-						<option value="consulta">Consulta</option>
-						<option value="resenya">Valoració/Resenya</option>
-						<option value="suggeriment">Suggeriment</option>
-						<option value="altre">Altres</option>
-					</select>
-				</div>
-				<div class="inputBox">
-					<textarea id="missatge" placeholder="El teu missatge" required></textarea>
-				</div>
-				<div class="inputBox">
-					<label class="puntuacio-label">Puntuació (opcional):</label>
-					<div class="puntuacio">
-						<span data-valor="1">★</span>
-						<span data-valor="2">★</span>
-						<span data-valor="3">★</span>
-						<span data-valor="4">★</span>
-						<span data-valor="5">★</span>
-					</div>
-					<input type="hidden" id="puntuacio" value="0">
-				</div>
-				<div class="inputBox">
-					<button type="submit" class="btn" id="botoEnviar">Enviar missatge</button>
-					<div id="missatgeFeedback" style="margin-top: 15px; display: none;"></div>
-				</div>
-			</form>
-		</div>
+				<input type="hidden" id="puntuacio" name="puntuacio" value="0">
+			</div>
+
+			<!-- HONEYPOT (NO mostrar) -->
+			<div style="display:none !important; visibility:hidden;">
+				<label>Deixa aquest camp buit</label>
+				<input type="text" name="website" id="website" value="">
+			</div>
+
+			<!-- TIMESTAMP (es posa amb JS) -->
+			<input type="hidden" name="ts" id="ts" value="">
+
+			<div class="inputBox">
+				<button type="submit" class="btn" id="botoEnviar">Enviar missatge</button>
+				<div id="missatgeFeedback" style="margin-top: 15px; display: none;"></div>
+			</div>
+		</form>
+	</div>
 	</section>
 
 	<footer>
@@ -280,7 +273,5 @@ Les creps —dolces i salades— es fan al moment, amb una massa fina i lleugera
 			<p>&copy; 2025 Crep Nova. Sota la reserva de tots els drets.</p>
 		</div>
 	</footer>
-
-	<script src="script.js" defer></script>
 </body>
 </html>

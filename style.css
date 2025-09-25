@@ -1230,3 +1230,19 @@ section
   background: rgba(0,0,0,.45) !important;
   z-index: 0 !important;
 }
+
+/* Scroll margin for anchor links */
+:root {
+  --header-h: 80px;
+  --anchor-extra: 0.25px;  /* espai gairebé imperceptible */
+}
+
+@media (max-width: 991px) { 
+  :root { 
+    --header-h: 64px; 
+  } 
+}
+
+section[id] { 
+  scroll-margin-top: calc(var(--header-h) + var(--anchor-extra)); 
+}

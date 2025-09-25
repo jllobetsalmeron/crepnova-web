@@ -212,9 +212,13 @@ body.section-bg {
 }
 
 .btn-secondary {
-    background: #f8f9fa;
-    color: #333;
-    border: 1px solid #ddd;
+    background: white;
+    color: #ff6b6b;
+    border: 2px solid #ff6b6b;
+    height: 40px;        /* mateixa alçada que el select */
+    line-height: 1;      /* assegura que el text estigui centrat */
+    padding: 0 16px;     /* manté l'amplada flexible */
+    font-size: 1em;
 }
 
 .btn-primary:hover {

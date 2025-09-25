@@ -3,12 +3,12 @@ const restaurants = [
     {
         id: 1,
         name: 'Crep Nova Bonanova',
-        address: 'Passeig Bonanova 12, 08022 Barcelona',
+        address: 'Passeig Bonanova 104, 08017 Barcelona',
         district: 'Sarrià-Sant Gervasi',
-        phone: '93 211 55 97',
+        phone: '93 205 96 46',
         schedule: 'Dilluns a Diumenge: 12:00 - 23:30',
-        lat: 41.4054,
-        lng: 2.1305,
+        lat: 41.4002,
+        lng: 2.1278,
         image: 'img/restaurant1.jpg',
         description: 'Al cor de Bonanova, oferim un espai acollidor amb terrassa i menjar casolà.'
     },
@@ -25,18 +25,6 @@ const restaurants = [
         description: 'A prop de l\'Hospital de Sant Joan de Déu, ideal per a una pausa amb menjar casolà.'
     },
     {
-        id: 3,
-        name: 'Crep Nova Muntaner',
-        address: 'Muntaner 244, 08021 Barcelona',
-        district: 'Sarrià-Sant Gervasi',
-        phone: '93 315 38 90',
-        schedule: 'Dilluns a Diumenge: 12:00 - 23:30',
-        lat: 41.3956,
-        lng: 2.1447,
-        image: 'img/restaurant3.jpg',
-        description: 'Al cor de Barcelona, prop de l\'Avinguda Diagonal.'
-    },
-    {
         id: 4,
         name: 'Crep Nova Pedralbes',
         address: 'Dr. August Pi i Sunyer 12, 08034 Barcelona',
@@ -45,11 +33,11 @@ const restaurants = [
         schedule: 'Dilluns a Diumenge: 12:00 - 23:30',
         lat: 41.3869,
         lng: 2.1180,
-        image: 'img/restaurant4.jpg',
+        image: 'img/restaurant3.jpg',
         description: 'A prop del Monestir de Pedralbes, un lloc perfecte per gaudir d\'un àpat en un entorn únic.'
     },
     {
-        id: 5,
+        id: 3,
         name: 'Crep Nova Urgell',
         address: 'Compte d\'Urgell 280, 08036 Barcelona',
         district: 'Les Corts',
@@ -57,23 +45,11 @@ const restaurants = [
         schedule: 'Dilluns a Diumenge: 12:00 - 23:30',
         lat: 41.3858,
         lng: 2.1502,
-        image: 'img/restaurant5.jpg',
+        image: 'img/restaurant4.jpg',
         description: 'Al cor de Barcelona, proper a l\'Hospital Clínic.'
     },
     {
-        id: 6,
-        name: 'Crep Nova Sarrià',
-        address: 'Passeig Bonanova 104, 08017 Barcelona',
-        district: 'Sarrià-Sant Gervasi',
-        phone: '93 205 96 46',
-        schedule: 'Dilluns a Diumenge: 12:00 - 23:30',
-        lat: 41.4002,
-        lng: 2.1278,
-        image: 'img/restaurant6.jpg',
-        description: 'Al cor de Sarrià, amb un ambient acollidor i menjar casolà.'
-    },
-    {
-        id: 7,
+        id: 5,
         name: 'Crep Nova Sant Cugat',
         address: 'Mercat de Torreblanca, 08172 St. Cugat',
         district: 'Sant Cugat',
@@ -81,11 +57,11 @@ const restaurants = [
         schedule: 'Dilluns a Diumenge: 12:00 - 23:30',
         lat: 41.4667,
         lng: 2.0833,
-        image: 'img/restaurant7.jpg',
+        image: 'img/restaurant5.jpg',
         description: 'Al mercat de Torreblanca, a Sant Cugat.'
     },
     {
-        id: 8,
+        id: 6,
         name: 'Crep Nova La Maquinista',
         address: 'Potosí, 2 Local A-3, 08030 Barcelona',
         district: 'Sant Andreu',
@@ -93,11 +69,11 @@ const restaurants = [
         schedule: 'Dilluns a Diumenge: 12:00 - 23:30',
         lat: 41.4389,
         lng: 2.1967,
-        image: 'img/restaurant8.jpg',
+        image: 'img/restaurant6.jpg',
         description: 'Dins el centre comercial La Maquinista, ideal per a una pausa durant les compres.'
     },
     {
-        id: 9,
+        id: 7,
         name: 'Crep Nova Diagonal',
         address: 'Avinguda Diagonal 372, 08037 Barcelona',
         district: 'Eixample',
@@ -105,11 +81,11 @@ const restaurants = [
         schedule: 'Dilluns a Diumenge: 12:00 - 23:30',
         lat: 41.3994,
         lng: 2.1748,
-        image: 'img/restaurant9.jpg',
+        image: 'img/restaurant7.jpg',
         description: 'A l\'avinguda Diagonal, proper a la Sagrada Família.'
     },
     {
-        id: 10,
+        id: 8,
         name: 'Crep Nova Quevedo',
         address: 'Calle de Eloy Gonzalo 4, 28010 Madrid',
         district: 'Madrid',
@@ -117,11 +93,11 @@ const restaurants = [
         schedule: 'Dilluns a Diumenge: 12:00 - 23:30',
         lat: 40.4319,
         lng: -3.7038,
-        image: 'img/restaurant10.jpg',
+        image: 'img/restaurant8.jpg',
         description: 'Al cor de Madrid, al barri de Chamberí.'
     },
     {
-        id: 11,
+        id: 9,
         name: 'Crep Nova Delivery Laforja',
         address: 'Laforja 132, 08021 Barcelona',
         district: 'Sarrià-Sant Gervasi',
@@ -129,11 +105,11 @@ const restaurants = [
         schedule: 'Dilluns a Diumenge: 12:00 - 23:30',
         lat: 41.3987,
         lng: 2.1389,
-        image: 'img/restaurant11.jpg',
+        image: 'img/restaurant9.jpg',
         description: 'Servei de delivery a la zona de Laforja.'
     },
     {
-        id: 12,
+        id: 10,
         name: 'Crep Nova Delivery Esplugues',
         address: 'Carrer de Laureà Miró 221, 08950 Esplugues de Llobregat',
         district: 'Baix Llobregat',
@@ -141,11 +117,11 @@ const restaurants = [
         schedule: 'Dilluns a Diumenge: 12:00 - 23:30',
         lat: 41.3780,
         lng: 2.0878,
-        image: 'img/restaurant12.jpg',
+        image: 'img/restaurant10.jpg',
         description: 'Servei de delivery a Esplugues de Llobregat.'
     },
     {
-        id: 13,
+        id: 11,
         name: 'Crep Nova Delivery Juan Bosco',
         address: 'Passeig Sant Joan Bosco 55, 08017 Barcelona',
         district: 'Sarrià-Sant Gervasi',
@@ -153,8 +129,20 @@ const restaurants = [
         schedule: 'Dilluns a Diumenge: 12:00 - 23:30',
         lat: 41.4008,
         lng: 2.1236,
-        image: 'img/restaurant13.jpg',
+        image: 'img/restaurant11.jpg',
         description: 'Servei de delivery a la zona de Sant Joan Bosco.'
+    },
+    {
+        id: 12,
+        name: 'Crep Nova Sarrià',
+        address: 'Passeig Bonanova 104, 08017 Barcelona',
+        district: 'Sarrià-Sant Gervasi',
+        phone: '93 205 96 46',
+        schedule: 'Dilluns a Diumenge: 12:00 - 23:30',
+        lat: 41.4002,
+        lng: 2.1278,
+        image: 'img/restaurant12.jpg',
+        description: 'Al cor de Sarrià, amb un ambient acollidor i menjar casolà.'
     }
 ];
 

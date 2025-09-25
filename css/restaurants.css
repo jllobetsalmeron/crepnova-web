@@ -1,4 +1,38 @@
 /* Estilos generales para la página de restaurantes */
+
+/* 1) Treu el marge vertical heretat del .btn de style.css */
+.filters .btn,
+#locationButton {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+/* 2) Assegura alçada i alineació perfectes */
+.search-box input,
+#districtFilter,
+#locationButton {
+  height: 48px;
+  box-sizing: border-box;
+}
+
+/* el botó "Troba el més proper" */
+#locationButton {
+  display: inline-flex;       /* centrat vertical de icona+text */
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  padding: 0 16px;            /* manté l'amplada flexible */
+  align-self: center;         /* per si algun contenidor força altres cross-aligns */
+  gap: 8px;                   /* espai entre icona i text */
+}
+
+/* 3) El contenidor ja en flex, però reforcem l'alineació */
+.filters {
+  display: flex;
+  align-items: center;        /* tots a la mateixa alçada */
+  gap: 12px;
+  flex-wrap: wrap;            /* per a responsivitat en pantalles petites */
+}
 :root {
     --primary-color: #ff6b6b;
     --secondary-color: #4ecdc4;

@@ -1,9 +1,11 @@
 // js/header.js
 function toggleMenu() {
   const menuToggle = document.querySelector('.menuToggle');
-  const navigation = document.querySelector('nav');
-  menuToggle.classList.toggle('active');
-  navigation.classList.toggle('active');
+  const navigation = document.querySelector('.navigation');
+  const nav = document.querySelector('header nav');
+  if (menuToggle) menuToggle.classList.toggle('active');
+  if (navigation) navigation.classList.toggle('active');
+  if (nav) nav.classList.toggle('active');
 }
 
 document.addEventListener('DOMContentLoaded', () => {
