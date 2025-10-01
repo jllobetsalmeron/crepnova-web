@@ -1,0 +1,238 @@
+﻿<!DOCTYPE html>
+<html lang="ca" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Carta Crep Nova: pizzes, creps, amanides, plats i begudes.">
+  <title>Carta | Crep Nova</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="css/carta.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <script src="js/header.js" defer></script>
+  <script src="js/carta.js" defer></script>
+</head>
+<body class="section-bg">
+  <header class="header header--transparent">
+    <a href="index.html" class="logo">
+      <img src="img/logo.png" alt="Crep Nova Logo" class="logo-img">
+    </a>
+    <div class="menuToggle" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+    <nav>
+      <ul class="navigation">
+        <li><a href="index.html#banner" class="nav-link" onclick="toggleMenu()">Inici</a></li>
+        <li><a href="index.html#about" class="nav-link" onclick="toggleMenu()">Sobre Nosaltres</a></li>
+        <li><a href="carta.html" class="nav-link active" onclick="toggleMenu()">Carta</a></li>
+        <li><a href="restaurants.html" class="nav-link" onclick="toggleMenu()">Restaurants</a></li>
+        <li><a href="order-online.html" class="nav-link" onclick="toggleMenu()">Demanar Online</a></li>
+        <li><a href="reservar.html" class="nav-link" onclick="toggleMenu()">Reservar</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="menu-hero">
+    <div class="hero-content">
+      <h1><span class="red-text">C</span>arta <span class="red-text">C</span>rep <span class="red-text">N</span>ova</h1>
+      <p>Descobreix la nostra selecci&oacute; de pizzes, creps, amanides, plats i begudes.</p>
+      <div class="menu-search">
+        <i class="fas fa-search"></i>
+        <input id="menuSearch" type="search" placeholder="Cerca per plat o ingredient...">
+      </div>
+    </div>
+  </section>
+
+  <nav class="menu-tabs" aria-label="Categories de la carta">
+    <div class="tabs-scroller">
+      <a class="tab" href="#pizzes">Pizzes</a>
+      <a class="tab" href="#creps-salades">Creps salades</a>
+      <a class="tab" href="#creps-dolces">Creps dolces</a>
+      <a class="tab" href="#entrants">Entrants</a>
+      <a class="tab" href="#amanides">Amanides</a>
+      <a class="tab" href="#plats">Plats combinats</a>
+      <a class="tab" href="#pastes">Pastes</a>
+      <a class="tab" href="#arrossos">Arrossos</a>
+      <a class="tab" href="#sandvitxos">Sandvitxos</a>
+      <a class="tab" href="#begudes">Begudes</a>
+      <a class="tab" href="#postres">Postres</a>
+    </div>
+  </nav>
+
+  <main class="menu-container" id="menuRoot" aria-live="polite">
+    <!-- JS renderitza totes les seccions a partir de data/menu.json -->
+  </main>
+
+  <!-- Fallback inline data for local file usage -->
+  <script id="menuData" type="application/json">
+{
+  "sections": [
+    { "id": "entrants", "title": "Per compartir", "items": [
+      { "name": "Olives farcides", "price": 3.5 },
+      { "name": "Patates fregides", "price": 5.2 },
+      { "name": "Pa amb tomàquet", "price": 3.2 },
+      { "name": "Croqueta de pernil", "price": 2.4 },
+      { "name": "Croqueta de pollastre", "price": 2.4 },
+      { "name": "Ensaladilla russa", "price": 5.6 },
+      { "name": "Patates braves", "price": 5.6 },
+      { "name": "Fingers de pollastre", "price": 5.6 },
+      { "name": "Aletes de pollastre", "price": 6.3 },
+      { "name": "Pernil ibèric (ració)", "price": 16.95 },
+      { "name": "Pernil ibèric (mitja ració)", "price": 9.35 },
+      { "name": "Mortadel·la trufada amb parmesà (ració)", "price": 10.95 },
+      { "name": "Mortadel·la trufada amb parmesà (mitja ració)", "price": 7.85 },
+      { "name": "Anxoves", "price": 10.8 },
+      { "name": "Torrada de pa de vidre amb escalivada i anxoves", "price": 11.55 },
+      { "name": "Ous estrellats amb pernil ibèric", "price": 15.15 }
+    ]},
+    { "id": "amanides", "title": "Amanides", "items": [
+      { "name": "Burrata", "desc": "burrata, rúcula, tomàquet i pesto", "price": 9.95 },
+      { "name": "Variada", "desc": "enciam, tomàquet cherry, tonyina, formatge de cabra i fruits secs", "price": 8.9 }
+    ]},
+    { "id": "pastes", "title": "Pastes fresques", "description":"Espaguetis, rigatoni, ravioli de carn i parmesà o cuoricini de nous i parmesà", "items": [
+      { "name": "amb salsa bolonyesa", "price": 12.4 },
+      { "name": "amb salsa alla chitarra (all i oli)", "price": 12.1 },
+      { "name": "amb salsa de bolets", "price": 12.4 },
+      { "name": "amb salsa carbonara", "price": 12.4 },
+      { "name": "amb salsa pesto", "price": 12.4 },
+      { "name": "amb tòfona", "price": 14.85 },
+      { "name": "amb salsa napolitana", "desc":"i oli d'alfàbrega", "price": 12.1 },
+      { "name": "amb salsa arrabbiata", "desc":"i oli d'alfàbrega", "price": 12.1 },
+      { "name": "sacotini de pera", "desc":"amb gorgonzola i nous", "price": 13.45 }
+    ]},
+    { "id": "arrossos", "title": "Arrossos", "items": [
+      { "name": "Arròs amb verdures", "desc": "arròs saltejat amb espàrrecs, carbassó i albergínia", "price": 11.5 },
+      { "name": "Arròs esquirol", "desc": "arròs saltejat amb truita, blat de moro, pernil dolç, bacó i pinyons", "price": 11.5 }
+    ]},
+    { "id": "sandvitxos", "title": "Sandvitxos i bocates", "items": [
+      { "name": "Bikini", "desc": "pernil dolç i formatge", "price": 5.8 },
+      { "name": "Bikini d'ibèric", "desc": "pernil ibèric i formatge", "price": 6.0 },
+      { "name": "Especial", "desc": "ou ferrat, pollastre, bacó, enciam i maionesa", "price": 6.4 },
+      { "name": "Serrà", "desc": "ou ferrat, pernil ibèric, tomàquet, enciam i maionesa", "price": 6.6 },
+      { "name": "Americà", "desc": "ou ferrat, pernil dolç, tomàquet, enciam i maionesa", "price": 6.6 },
+      { "name": "Club", "desc": "bacó, vedella, enciam, tomàquet i maionesa", "price": 6.6 },
+      { "name": "Ou boig", "desc": "ou ferrat, pernil dolç, llom i formatge", "price": 6.25 }
+    ]},
+    { "id": "creps-salades", "title": "Creps salades", "items": [
+      { "name": "Especial", "desc": "ou, pernil dolç i formatge", "price": 6.55 },
+      { "name": "Pernil ibèric i formatge", "price": 6.55 },
+      { "name": "Pernil dolç i formatge", "price": 6.45 },
+      { "name": "Sobrassada i formatge", "price": 5.85 }
+    ]},
+    { "id": "creps-dolces", "title": "Creps dolces", "items": [
+      { "name": "Nutella", "price": 6.55 },
+      { "name": "Xocolata negra", "price": 6.35 },
+      { "name": "Dulce de leche", "price": 5.95 },
+      { "name": "Crema de Lotus", "price": 6.55 },
+      { "name": "Xocolata blanca", "price": 6.35 },
+      { "name": "Licor flamejat", "price": 5.9 }
+    ]},
+    { "id": "pizzes", "title": "Pizzes", "items": [
+      { "name": "Nova 1 (Margarita)", "desc": "tomàquet i mozzarella", "price": 11.6 },
+      { "name": "Nova 2 (York)", "desc": "tomàquet, mozzarella i pernil dolç", "price": 11.9 },
+      { "name": "Nova 4 (Anxoves i tonyina)", "desc": "tomàquet, mozzarella, anxoves, tonyina i olives", "price": 13.5 },
+      { "name": "Nova 5 (Botifarra)", "desc": "tomàquet, mozzarella i botifarra esparracada", "price": 12.5 },
+      { "name": "Nova 6 (Bacó i ou)", "desc": "tomàquet, mozzarella, bacó i ou", "price": 12.5 },
+      { "name": "Nova 7 (4 estacions)", "desc": "tomàquet, mozzarella, pernil dolç, xampinyons, ceba caramel·litzada i olives", "price": 12.5 },
+      { "name": "Nova 8 (Pernil ibèric)", "desc": "tomàquet, mozzarella i pernil ibèric", "price": 16.2 },
+      { "name": "Nova 10 (Calzone)", "desc": "tomàquet, pernil dolç, ou i mozzarella", "price": 12.25 },
+      { "name": "Nova 11 (Mediterrània)", "desc": "tomàquet, mozzarella, pernil dolç, xampinyons, rúcula i parmesà", "price": 13.5 },
+      { "name": "Nova 13 (4 formatges)", "desc": "tomàquet, mozzarella, 4 formatges i olives", "price": 12.9 },
+      { "name": "Nova 15 (Pernil ibèric i ou)", "desc": "tomàquet, mozzarella, pernil ibèric i ou", "price": 16.35 },
+      { "name": "Nova 16 (Formatge de cabra i mel)", "desc": "tomàquet, mozzarella, formatge de cabra, mel i ceba caramel·litzada", "price": 12.6 },
+      { "name": "Nova 18 (Quico)", "desc": "tomàquet i pernil ibèric (sense formatge)", "price": 15.7 },
+      { "name": "Nova 19 (Barbacoa)", "desc": "tomàquet, mozzarella, pollastre, vedella, bacó, ceba crua picada, salsa BBQ", "price": 13.6 },
+      { "name": "Nova 20 (Mallorquina)", "desc": "tomàquet, mozzarella, sobrassada, formatge brie i mel", "price": 13.5 },
+      { "name": "Nova 21 (Pepperoni)", "desc": "tomàquet, mozzarella i pepperoni", "price": 12.5 },
+      { "name": "Nova 25 (Mortadel·la trufada)", "desc": "tomàquet, mozzarella, mortadel·la trufada, parmesà, oli d'oliva i pebre", "price": 14.3 },
+      { "name": "Nova 28 (Trufada)", "desc": "mozzarella, tòfona, parmesà i ou", "price": 16.25 },
+      { "name": "Nova 29 (Burrata)", "desc": "tomàquet, mozzarella, tomàquets cherry, burrata, rúcula i salsa pesto", "price": 14.8 },
+      { "name": "Vegetal", "desc": "tomàquet, mozzarella, carbassó, albergínia, espàrrecs, xampinyons i tomàquets cherry", "price": 13.5 }
+    ]},
+    { "id": "begudes", "title": "Begudes", "subsections": [
+      { "title": "Vins blancs", "items": [
+        { "name": "Torelló blanc Tranquille (D.O. Penedès)", "desc": "Ampolla 75 cl - Macabeu, Xarel·lo, Parellada", "price": 18.0 },
+        { "name": "Casar de Burbia (D.O. Bierzo)", "desc": "Ampolla 75 cl - 100% Godello", "price": 19.0 },
+        { "name": "Afortunado (D.O. Rueda)", "desc": "Ampolla 75 cl - Verdejo", "price": 17.0 },
+        { "name": "Afortunado (D.O. Rueda) - Copa", "desc": "Copa - Verdejo", "price": 3.9 },
+        { "name": "Afortunado (D.O. Rueda) Magnum", "desc": "Ampolla 1.5 l - Verdejo - Magnum", "price": 28.0 },
+        { "name": "Perro Verde (D.O. Rueda)", "desc": "Ampolla 75 cl - Verdejo", "price": 20.0 },
+        { "name": "Perro Verde (D.O. Rueda) Magnum", "desc": "Ampolla 1.5 l - Verdejo - Magnum", "price": 34.65 },
+        { "name": "Pago de Cirsus (D.O. Navarra)", "desc": "Ampolla 75 cl - Chardonnay", "price": 18.5 }
+      ]},
+      { "title": "Vins rosats", "items": [
+        { "name": "Cueva de Lobos", "desc": "Ampolla 75 cl - Tempranillo", "price": 16.0 },
+        { "name": "Cueva de Lobos - Copa", "desc": "Copa - Tempranillo", "price": 3.5 },
+        { "name": "Rosa d'Abril Ecològic (D.O. Penedès)", "desc": "Ampolla 75 cl - Macabeu, Malvasia, Syrah", "price": 18.0 },
+        { "name": "Lambrusco Bellavita (D.O.C Lambrusco)", "desc": "Ampolla 75 cl - Lambrusco", "price": 13.0 }
+      ]},
+      { "title": "Vins negres", "items": [
+        { "name": "Entre Lobos (D.O. Ribera del Duero)", "desc": "Ampolla 75 cl - 100% Tinto Fino", "price": 18.5 },
+        { "name": "Entre Lobos (D.O. Ribera del Duero) Magnum", "desc": "Ampolla 1.5 l - 100% Tinto Fino - Magnum", "price": 29.0 },
+        { "name": "Entre Lobos (D.O. Ribera del Duero) - Copa", "desc": "Copa - 100% Tinto Fino", "price": 4.2 },
+        { "name": "Celestia Tierra (D.O. Costers del Segre)", "desc": "Ampolla 75 cl - Tempranillo, Garnatxa, Syrah", "price": 18.0 },
+        { "name": "Pago de los Capellanes Crianza (D.O. Ribera del Duero)", "desc": "Ampolla 75 cl - Tempranillo", "price": 40.0 },
+        { "name": "Luis Cañas Crianza (D.O. Rioja)", "desc": "Ampolla 75 cl - Tempranillo, Garnatxa", "price": 25.0 },
+        { "name": "Luis Cañas Crianza (D.O. Rioja) Magnum", "desc": "Ampolla 1.5 l - Tempranillo, Garnatxa - Magnum", "price": 35.7 },
+        { "name": "Cueva de Lobos (D.O. Rioja)", "desc": "Ampolla 75 cl - Tempranillo", "price": 18.0 },
+        { "name": "Cueva de Lobos (D.O. Rioja) - Copa", "desc": "Copa - Tempranillo", "price": 4.7 },
+        { "name": "Cueva de Lobos (D.O. Rioja) Magnum", "desc": "Ampolla 1.5 l - Tempranillo – Magnum", "price": 28.0 }
+      ]},
+      { "title": "Cava", "items": [
+        { "name": "Torelló Brut Reserva - Ampolla 75 cl", "desc": "Macabeu, Xarel·lo, Parellada", "price": 24.15 },
+        { "name": "Torelló Brut Reserva - Copa", "desc": "Macabeu, Xarel·lo, Parellada", "price": 4.95 },
+        { "name": "Torelló Brut Nature Gran Reserva", "desc": "Ampolla 75 cl - Macabeu, Xarel·lo, Parellada", "price": 26.75 }
+      ]},
+      { "title": "Sangria", "items": [
+        { "name": "De vi (Rioja o Penedès) 1 L", "price": 17.6 },
+        { "name": "De cava (Torelló Brut Reserva) 1 L", "price": 24.15 }
+      ]},
+      { "title": "Cafès especials", "items": [
+        { "name": "Cafè vienès", "desc": "Cafè amb nata", "price": 4.65 },
+        { "name": "Cafè català", "desc": "Cafè, torres i nata", "price": 5.15 },
+        { "name": "Irish coffee", "desc": "Cafè, whisky i nata", "price": 7.25 },
+        { "name": "Calipso", "desc": "Cafè, tia maria, nata i canyella", "price": 5.35 },
+        { "name": "Cafè escocès", "desc": "Cafè, whisky i gelat de vainilla", "price": 7.25 }
+      ]}
+    ]},
+    { "id": "postres", "title": "Postres", "items": [
+      { "name": "Gelat (2 boles)", "desc":"vainilla, xocolata, maduixa, torró", "price": 5.0 },
+      { "name": "Crocanti", "price": 5.0 },
+      { "name": "Batut", "desc":"maduixa i nata, xocolata", "price": 5.15 },
+      { "name": "Tiramisú", "price": 5.7 },
+      { "name": "Trufes", "desc":"6 unitats", "price": 6.25 },
+      { "name": "Lemon pie", "price": 6.8 },
+      { "name": "Flam d'ou", "price": 5.0 },
+      { "name": "Paquets de crema", "price": 5.7 },
+      { "name": "Sorbet de llimona", "desc":"amb vodka o cava", "price": 5.6 },
+      { "name": "Häagen-Dazs", "price": 5.75 }
+    ]}
+  ]
+}
+</script>
+
+  <footer class="section-bg">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Contacte</h3>
+        <p><i class="fas fa-phone"></i> 900 123 456</p>
+        <p><i class="fas fa-envelope"></i> info@crepnova.cat</p>
+      </div>
+      <div class="footer-section">
+        <h3>Segueix-nos</h3>
+        <div class="social-links">
+          <a href="https://www.instagram.com/crep_nova/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; Copyright 2025. Sota la reserva de tots els drets.</p>
+    </div>
+  </footer>
+</body>
+</html>
+
+
+
+
+
+

@@ -1,4 +1,4 @@
-/* Page background */
+﻿/* Page background */
 body.order-page {
     background: url('../img/fons-seccio.jpg') no-repeat center center fixed;
     background-size: cover;
@@ -174,7 +174,7 @@ body.section-bg {
 
 .option-icon {
     font-size: 2.5rem;
-    color: #ff6b6b;
+    color: #ff0157;
     margin-bottom: 20px;
 }
 
@@ -207,14 +207,18 @@ body.section-bg {
 }
 
 .btn-primary {
-    background: #ff6b6b;
+    background: #ff0157;
     color: white;
 }
 
 .btn-secondary {
-    background: #f8f9fa;
-    color: #333;
-    border: 1px solid #ddd;
+    background: white;
+    color: #ff0157;
+    border: 2px solid #ff0157;
+    height: 40px;        /* mateixa alçada que el select */
+    line-height: 1;      /* assegura que el text estigui centrat */
+    padding: 0 16px;     /* manté l'amplada flexible */
+    font-size: 1em;
 }
 
 .btn-primary:hover {
@@ -223,8 +227,8 @@ body.section-bg {
 }
 
 .btn-secondary:hover {
-    border-color: #ff6b6b;
-    color: #ff6b6b;
+    border-color: #ff0157;
+    color: #ff0157;
     transform: translateY(-2px);
 }
 
@@ -267,7 +271,7 @@ body.section-bg {
 .step-number {
     width: 50px;
     height: 50px;
-    background: #ff6b6b;
+    background: #ff0157;
     color: white;
     border-radius: 50%;
     display: flex;
@@ -404,7 +408,7 @@ body.section-bg {
 
 /* Red text for highlighted letters */
 .red-text {
-    color: #ff6b6b;
+    color: #ff0157;
 }
 
 /* Footer */
@@ -438,11 +442,11 @@ footer.section-bg::before {
 
 .footer-section h3 {
     color: #fff;
-    margin-bottom: 20px;
-    font-size: 1.3rem;
+    margin-bottom: 16px;
+    font-size: 1.2rem;
     font-weight: 600;
     position: relative;
-    padding-bottom: 10px;
+    padding-bottom: 8px;
 }
 
 .footer-section h3::after {
@@ -503,3 +507,4 @@ footer.section-bg::before {
 section {
     padding: 60px 0;
 }
+

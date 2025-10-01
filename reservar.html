@@ -1,0 +1,187 @@
+﻿<!DOCTYPE html>
+<html lang="ca" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Reserva taula a Crep Nova. Tria restaurant, data, hora i confirma.">
+  <title>Reservar | Crep Nova</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="css/reservar.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <script src="js/header.js" defer></script>
+  <script src="js/reservar.js" defer></script>
+</head>
+<body class="section-bg">
+  <header class="header header--transparent">
+    <a href="index.html" class="logo">
+      <img src="img/logo.png" alt="Crep Nova Logo" class="logo-img">
+    </a>
+    <div class="menuToggle" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <nav>
+      <ul class="navigation">
+        <li><a href="index.html#banner" class="nav-link" onclick="toggleMenu()">Inici</a></li>
+        <li><a href="index.html#about" class="nav-link" onclick="toggleMenu()">Sobre Nosaltres</a></li>
+        <li><a href="index.html#menu" class="nav-link" onclick="toggleMenu()">Carta</a></li>
+        <li><a href="restaurants.html" class="nav-link" onclick="toggleMenu()">Restaurants</a></li>
+        <li><a href="order-online.html" class="nav-link" onclick="toggleMenu()">Demanar Online</a></li>
+        <li><a href="reservar.html" class="nav-link active" onclick="toggleMenu()">Reservar</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="reservations-hero">
+    <div class="hero-content">
+      <h1><span class="red-text">R</span>eserva a <span class="red-text">C</span>rep <span class="red-text">N</span>ova</h1>
+      <p>Tria restaurant, data i hora. Confirmació en 4 passos.</p>
+    </div>
+  </section>
+
+  <main class="reservations-container">
+    <ol class="stepper" role="list">
+      <li class="step active" data-step="1" aria-current="step">
+        <span class="step-index">1</span>
+        <span class="step-label">Restaurant</span>
+      </li>
+      <li class="step" data-step="2">
+        <span class="step-index">2</span>
+        <span class="step-label">Data i Comensals</span>
+      </li>
+      <li class="step" data-step="3">
+        <span class="step-index">3</span>
+        <span class="step-label">Franja Horària</span>
+      </li>
+      <li class="step" data-step="4">
+        <span class="step-index">4</span>
+        <span class="step-label">Dades i Confirmació</span>
+      </li>
+    </ol>
+
+    <!-- Pas 1: Restaurant -->
+    <section class="step-panel" data-step="1">
+      <h2 class="sr-only">Selecciona restaurant</h2>
+      <div class="card">
+        <label for="restaurant" class="field-label">Restaurant</label>
+        <select id="restaurant" class="field">
+          <option value="" selected>Tria un restaurant</option>
+          <option value="sarria">Crep Nova Sarrià</option>
+          <option value="pedralbes">Crep Nova Pedralbes</option>
+          <option value="santcugat">Crep Nova Sant Cugat</option>
+        </select>
+        <p class="help">Per a grups de més de 14 comensals, truqueu-nos.</p>
+      </div>
+      <div class="actions">
+        <button class="btn btn-primary next" data-next="2" disabled>Continuar</button>
+      </div>
+    </section>
+
+    <!-- Pas 2: Data i comensals -->
+    <section class="step-panel" data-step="2" hidden>
+      <h2 class="sr-only">Data i comensals</h2>
+      <div class="grid-2">
+        <div class="card">
+          <label for="date" class="field-label">Data</label>
+          <input id="date" type="date" class="field">
+        </div>
+        <div class="card">
+          <label for="diners" class="field-label">Nombre de comensals</label>
+          <select id="diners" class="field">
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4" selected>4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+            <option value="13">13</option>
+            <option value="14">14</option>
+          </select>
+        </div>
+      </div>
+      <div class="actions">
+        <button class="btn btn-outline prev" data-prev="1">Enrere</button>
+        <button class="btn btn-primary next" data-next="3" disabled>Veure franges</button>
+      </div>
+    </section>
+
+    <!-- Pas 3: Franja horària -->
+    <section class="step-panel" data-step="3" hidden>
+      <h2 class="sr-only">Selecciona franja horària</h2>
+      <div id="slots" class="slots-grid" aria-live="polite"></div>
+      <div id="no-slots" class="notice" hidden>
+        Per a aquest dia i comensals no hi ha disponibilitat online. Pots contactar amb el restaurant seleccionat per telèfon.
+      </div>
+      <div class="actions">
+        <button class="btn btn-outline prev" data-prev="2">Enrere</button>
+        <button class="btn btn-primary next" data-next="4" disabled>Continuar</button>
+      </div>
+    </section>
+
+    <!-- Pas 4: Dades i confirmació -->
+    <section class="step-panel" data-step="4" hidden>
+      <h2 class="sr-only">Dades i confirmació</h2>
+      <form id="confirmForm" class="card form-grid" novalidate>
+        <div>
+          <label for="nom" class="field-label">Nom i cognoms</label>
+          <input id="nom" class="field" required>
+        </div>
+        <div>
+          <label for="email" class="field-label">Email</label>
+          <input id="email" type="email" class="field" required>
+        </div>
+        <div>
+          <label for="telefon" class="field-label">Telèfon</label>
+          <input id="telefon" type="tel" class="field" required>
+        </div>
+        <div class="full">
+          <label for="notes" class="field-label">Notes (opcional)</label>
+          <textarea id="notes" class="field" rows="3" placeholder="Al·lèrgies, preferències, etc."></textarea>
+        </div>
+        <div class="summary full" id="summary"></div>
+      </form>
+      <div class="actions">
+        <button class="btn btn-outline prev" data-prev="3">Enrere</button>
+        <button class="btn btn-primary" id="confirmBtn">Confirmar reserva</button>
+      </div>
+      <p class="legal">En confirmar, acceptes la nostra política de cancel·lació. Per a grups de més de 14 persones, si us plau, truqueu-nos.</p>
+    </section>
+  </main>
+
+  <!-- Confirmació modal -->
+  <div id="confirmModal" class="modal" aria-hidden="true" role="dialog" aria-labelledby="confirmTitle" aria-modal="true" hidden>
+    <div class="modal-dialog" role="document">
+      <div class="modal-icon"><i class="fas fa-check"></i></div>
+      <h3 id="confirmTitle">Reserva confirmada</h3>
+      <p>Hem registrat la teva reserva correctament.</p>
+      <button class="btn btn-primary" id="closeModalBtn" type="button">Tancar</button>
+    </div>
+  </div>
+
+  <footer class="section-bg">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Contacte</h3>
+        <p><i class="fas fa-phone"></i> 900 123 456</p>
+        <p><i class="fas fa-envelope"></i> info@crepnova.cat</p>
+      </div>
+            <div class="footer-section">
+                <h3>Segueix-nos</h3>
+                <div class="social-links">
+                    <a href="https://www.instagram.com/crep_nova/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; Copyright 2025. Sota la reserva de tots els drets.</p>
+    </div>
+  </footer>
+</body>
+</html>
+

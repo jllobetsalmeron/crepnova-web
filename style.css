@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;500;600;700;800;900&display=swap');
+﻿@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;500;600;700;800;900&display=swap');
 
 /* Estilos para el fondo de la página */
 .red-text {
@@ -108,32 +108,83 @@ footer .copyrightText p {
   font-size: .95rem;
 }
 
-.puntuacio-label {
-    color: #000000 !important;
-    display: block;
-    margin-bottom: 8px;
-    font-weight: 500;
+/* Unified bottom bar for new footers */
+footer .footer-bottom {
+  padding: 12px 40px;
+  text-align: center;
+  background: #000;                            /* barra negra fixa */
+  border-top: 1px solid rgba(255,255,255,.35); /* línia blanca a sobre */
+  margin-top: 0;
 }
 
-.puntuacio {
-    color: #000000 !important;
-    font-size: 1.2em;
-    letter-spacing: 2px;
-    margin-top: 5px;
-}
-
-.puntuacio span {
-    cursor: pointer;
-    transition: all 0.2s ease;
-}
-
-.puntuacio span:hover {
-    transform: scale(1.2);
-}
+/* Eliminat: puntuacio del formulari (ja no s'utilitza) */
 
 .footer-bottom p {
     color: white;
     margin: 0;
+}
+
+/* Footer layout and visuals (shared) */
+footer.section-bg .footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 40px;
+  color: #fff;
+}
+
+footer.section-bg .footer-section h3 {
+  margin: 0 0 12px;
+  font-size: 1.2rem;
+}
+
+footer.section-bg .footer-section h3::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: #ff0157;
+  margin-top: 8px;
+}
+
+footer.section-bg .footer-section p {
+  margin: 10px 0;
+  font-size: 1.05rem;
+  color: #fff;
+}
+
+footer.section-bg .footer-section p i {
+  color: #ff0157;
+  margin-right: 10px;
+}
+
+footer.section-bg .social-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  margin-right: 12px;
+  color: #fff;
+  border: 2px solid rgba(255,255,255,.5);
+  border-radius: 8px;
+  transition: transform .2s ease, background .2s ease, border-color .2s ease;
+}
+
+footer.section-bg .social-links i {
+  color: inherit; /* assegura color visible */
+  font-size: 1.1rem;
+  margin: 0;          /* evita desplaçament lateral */
+  width: auto;        /* no forçar amplada fixa */
+  line-height: 1;     /* centrat vertical net */
+}
+
+footer.section-bg .social-links a:hover {
+  background: #ff0157;
+  border-color: #ff0157;
+  transform: translateY(-2px);
 }
 
 /* Estilos base del header */
@@ -449,67 +500,7 @@ section
   font-size: 1.1em;
 }
 
-.contactForm {
-    padding: 50px 40px;
-    background: #fff;
-    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
-    max-width: 500px;
-    width: 80%;
-    margin: 30px auto;  
-    border-radius: 10px;
-    position: relative;
-    z-index: 2;
-}
-
-.contact .contactForm h3
-{
-	color: #111;
-	font-size: 1.5em;
-	margin-bottom: 20px;
-	font-weight: 600;
-}
-
-.contactForm form
-{
-	max-width: 100%;
-	margin: 0 auto;
-}
-
-.contactForm .inputBox
-{
-	margin-bottom: 20px;
-}
-
-.contactForm .inputBox input,
-.contactForm .inputBox select,
-.contactForm .inputBox textarea
-{
-	width: 100%;
-	padding: 12px 15px;
-	font-size: 1em;
-	border: 1px solid #ddd;
-	border-radius: 4px;
-	outline: none;
-	font-size: 16px;
-	font-weight: 300;
-	resize: none;
-}
-
-.contactForm .inputBox input[type="submit"]
-{
-	font-size: 1em;
-	color: #fff;
-	background: #ff0157;
-	display: inline-block;
-	text-transform: uppercase;
-	text-decoration: none;
-	letter-spacing: 2px;
-	transition: 0.5s;
-	max-width: 100px;
-	font-weight: 500;
-	border: none;
-	cursor: pointer;
-}
+/* Eliminat: estils del formulari de contacte (ja no s'utilitzen) */
 
 .copyrightText
 {
@@ -674,21 +665,14 @@ section
 		padding: 10px 20px;
 	}
 
-	.testimonials .content .box
-	{
-		margin: 10px;
-		padding: 20px;
-	}
-
-	.contactForm
-	{
-		padding: 35px 40px;
-		margin-top: 20px;
-		margin-bottom: 30px;
-	}
+    .testimonials .content .box
+    {
+        margin: 10px;
+        padding: 20px;
+    }
 }
 
-/* ===== SECCIÓN DE RESTAURANTES ===== */
+/* ===== SECCIÃ“N DE RESTAURANTES ===== */
 .restaurants {
     padding: 100px 0;
 }
@@ -757,7 +741,7 @@ section
 
 .info-item i {
     margin-right: 10px;
-    color: #ff6b6b;
+    color: #ff0157; /* align with site primary red */
     width: 18px;
     text-align: center;
     margin-top: 3px;
@@ -767,20 +751,20 @@ section
     display: inline-block !important;
     margin-top: 15px;
     padding: 8px 15px;
-    background-color: #ff6b6b;
+    background-color: #ff0157; /* unify red tone */
     color: #fff !important;
     text-decoration: none;
     border-radius: 5px;
     font-size: 0.9em;
-    border: 1px solid #ff6b6b;
+    border: 1px solid #ff0157;
     transition: all 0.3s ease;
     opacity: 1 !important;
     visibility: visible !important;
 }
 
 .btn-map:hover {
-    background-color: #e05a5a;
-    border-color: #e05a5a;
+    background-color: #e0004d; /* match hover tone used elsewhere */
+    border-color: #e0004d;
 }
 
 .btn-map i {
@@ -828,8 +812,8 @@ section
     }
 }
 
-/* ===== DEMANAR ONLINE — targeta compacta centrada ===== */
-/* DEMANAR ONLINE — targeta compacta centrada */
+/* ===== DEMANAR ONLINE €” targeta compacta centrada ===== */
+/* DEMANAR ONLINE €” targeta compacta centrada */
 .order-online {
   padding: 80px 0 150px;
   position: relative;
@@ -1214,10 +1198,7 @@ section
   overflow: hidden;
 }
 
-/* Prevent margin from next section */
-#contact { 
-  margin-top: 0 !important; 
-}
+/* Contact section removed; no anchor margin override needed */
 
 /* Ens assegurem que la capa fosca sigui la nostra i no una altra */
 #testimonials.order-online.section-bg::before{
@@ -1230,3 +1211,22 @@ section
   background: rgba(0,0,0,.45) !important;
   z-index: 0 !important;
 }
+
+/* Scroll margin for anchor links */
+:root {
+  --header-h: 80px;
+  --anchor-extra: 0.25px;  /* espai gairebé imperceptible */
+}
+
+@media (max-width: 991px) { 
+  :root { 
+    --header-h: 64px; 
+  } 
+}
+
+section[id] { 
+  scroll-margin-top: calc(var(--header-h) + var(--anchor-extra)); 
+}
+
+/* Contacte styles removed */
+
