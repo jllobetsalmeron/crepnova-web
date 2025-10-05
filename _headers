@@ -1,0 +1,10 @@
+/*
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: geolocation=(), microphone=(), camera=(), payment=(), usb=(), bluetooth=()
+  Content-Security-Policy: default-src ''self''; script-src ''self'' ''unsafe-inline'' https://unpkg.com https://cdn.jsdelivr.net; style-src ''self'' ''unsafe-inline'' https://fonts.googleapis.com; img-src ''self'' data: https://*.tile.openstreetmap.org; font-src ''self'' https://fonts.gstatic.com; connect-src ''self''; frame-ancestors ''none''
+
+/restaurants.html
+  Permissions-Policy: geolocation=(self), microphone=(), camera=(), payment=(), usb=(), bluetooth=()

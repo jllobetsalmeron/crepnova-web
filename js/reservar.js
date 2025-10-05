@@ -1,4 +1,4 @@
-﻿// Simple stepper + fake availability logic (no backend)
+// Simple stepper + fake availability logic (no backend)
 (() => {
   const els = {
     stepper: document.querySelectorAll('.step'),
@@ -19,10 +19,16 @@
 
   const state = { step: 1, restaurant: '', date: '', diners: 4, slot: '' };
 
-  // Init date (today)
+  // Init date (today) i sincronitza l'estat
   const today = new Date();
-  const pad = (n)=> String(n).padStart(2,'0');
-  els.date.value = `${today.getFullYear()}-${pad(today.getMonth()+1)}-${pad(today.getDate())}`;
+  const pad = n => String(n).padStart(2,'0');
+  const todayStr = `${today.getFullYear()}-${pad(today.getMonth()+1)}-${pad(today.getDate())}`;
+  els.date.value = todayStr;   // mostra avui
+  els.date.min   = todayStr;   // evita dates passades però permet avui
+  state.date     = todayStr;   // clau per habilitar el pas 2 amb avui
+  // sincronitza restaurant per si el select ja té un valor inicial
+  syncRestaurant();
+  updateButtons();
 
   function goto(step) {
     state.step = step;
@@ -32,6 +38,7 @@
       if (s === step) li.setAttribute('aria-current','step'); else li.removeAttribute('aria-current');
     });
     els.panels.forEach(p => p.hidden = Number(p.dataset.step) !== step);
+    updateButtons();
   }
 
   function validateStep(step){
@@ -91,9 +98,9 @@
   function renderSummary(){
     els.summary.innerHTML = `
       <strong>Resum de la reserva</strong><br>
-      Restaurant: ${labelOf(els.restaurant)}<br>
-      Data: ${state.date} · Hora: ${state.slot}<br>
-      Comensals: ${state.diners}
+      Restaurant: ${escapeHtml(labelOf(els.restaurant))}<br>
+      Data: ${escapeHtml(state.date)} · Hora: ${escapeHtml(state.slot)}<br>
+      Comensals: ${escapeHtml(state.diners.toString())}
     `;
   }
 
@@ -101,15 +108,32 @@
     const opt = select.options[select.selectedIndex];
     return opt ? opt.textContent : '';
   }
+  function escapeHtml(str) {
+    return String(str)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#039;");
+  }
+
+  function syncRestaurant(){
+    state.restaurant = els.restaurant.value || '';
+    updateButtons();
+  }
+  function syncDateFromInput(){
+    state.date = els.date.value || '';
+    updateButtons();
+  }
 
   // Event wiring
-  els.restaurant.addEventListener('change', e=>{
-    state.restaurant = e.target.value;
-    updateButtons();
+  ['change','input','keyup','blur'].forEach(evt => {
+    els.restaurant.addEventListener(evt, syncRestaurant);
   });
-  els.date.addEventListener('change', e=>{ state.date = e.target.value; updateButtons(); });
-  els.diners.addEventListener('change', e=>{ state.diners = Number(e.target.value); });
-
+  ['change','input'].forEach(evt => {
+    els.date.addEventListener(evt, syncDateFromInput);
+  });
+  els.diners.addEventListener('change', e => { state.diners = Number(e.target.value); updateButtons(); });
   els.nexts.forEach(btn=> btn.addEventListener('click', ()=>{
     const target = Number(btn.dataset.next);
     if (target===3) generateSlots();
@@ -155,4 +179,7 @@
   els.modal.addEventListener('click', (ev)=>{ if (ev.target === els.modal) closeModal(); });
   document.addEventListener('keydown', (ev)=>{ if (ev.key === 'Escape' && !els.modal.hidden) closeModal(); });
 })();
+
+
+
 

@@ -1,80 +1,4 @@
-<!DOCTYPE html>
-<html lang="ca" dir="ltr">
-<head>
-  <meta charset="UTF-8">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700;800;900&display=swap" rel="stylesheet">
-
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Descobreix la carta Crep Nova: pizzes, creps, amanides, plats i begudes.">
-  <title>Crep Nova · Carta, Pizzes, Creps i més</title>
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/carta.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <script src="js/header.js" defer></script>
-  <script src="js/carta.js" defer></script>
-  <link rel="icon" href="/img/favicon.ico">
-  <meta property="og:title" content="Crep Nova">
-  <meta property="og:description" content="La nostra carta completa.">
-  <meta property="og:image" content="/img/og-card.jpg">
-  <meta property="og:type" content="website">
-  <meta name="twitter:card" content="summary_large_image">
-</head>
-<body class="section-bg">
-  <header class="header header--transparent">
-    <a href="index.html" class="logo">
-      <img src="img/logo.png" alt="Crep Nova" class="logo-img">
-    </a>
-    <div class="menuToggle" onclick="toggleMenu()">
-      <span></span><span></span><span></span>
-    </div>
-    <nav>
-      <ul class="navigation">
-        <li><a href="index.html#banner" class="nav-link" onclick="toggleMenu()">Inici</a></li>
-        <li><a href="index.html#about" class="nav-link" onclick="toggleMenu()">Sobre Nosaltres</a></li>
-        <li><a href="carta.html" class="nav-link active" onclick="toggleMenu()">Carta</a></li>
-        <li><a href="restaurants.html" class="nav-link" onclick="toggleMenu()">Restaurants</a></li>
-        <li><a href="order-online.html" class="nav-link" onclick="toggleMenu()">Demanar Online</a></li>
-        <li><a href="reservar.html" class="nav-link" onclick="toggleMenu()">Reservar</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <section class="menu-hero">
-    <div class="hero-content">
-      <h1><span class="red-text">C</span>arta <span class="red-text">C</span>rep <span class="red-text">N</span>ova</h1>
-      <p>Descobreix la nostra selecci&oacute; de pizzes, creps, amanides, plats i begudes.</p>
-      <div class="menu-search">
-        <i class="fas fa-search"></i>
-        <input id="menuSearch" type="search" placeholder="Cerca per plat o ingredient...">
-      </div>
-    </div>
-  </section>
-
-  <nav class="menu-tabs" aria-label="Categories de la carta">
-    <div class="tabs-scroller">
-      <a class="tab" href="#entrants">Per a compartir</a>
-      <a class="tab" href="#amanides">Amanides i Verdures</a>
-      <a class="tab" href="#plats">Plats combinats</a>
-      <a class="tab" href="#pastes">Pastes fresques</a>
-      <a class="tab" href="#arrossos">Arrossos</a>
-      <a class="tab" href="#pizzes">Pizzes</a>
-      <a class="tab" href="#entrepans">Entrepans</a>
-      <a class="tab" href="#sandvitxos">Sandvitxos</a>
-      <a class="tab" href="#creps">Creps</a>
-      <a class="tab" href="#begudes">Begudes</a>
-      <a class="tab" href="#postres">Postres i Dolços</a>
-    </div>
-  </nav>
-
-  <main class="menu-container" id="menuRoot" aria-live="polite">
-    <!-- JS renderitza totes les seccions a partir de assets/data/menu.json -->
-  </main>
-
-  <!-- Fallback inline data for local file usage -->
-  <script id="menuData" type="application/json">
-{
+﻿{
   "sections": [
     { "id": "entrants", "title": "Per a compartir", "items": [
       { "name": "Olives farcides", "price": 3.50 },
@@ -170,31 +94,21 @@
       { "name": "Club", "desc": "bacó, vedella, enciam, tomàquet i maionesa", "price": 6.60 },
       { "name": "Ou boig", "desc": "ou ferrat, pernil dolç, llom i formatge", "price": 6.25 }
     ]},
-    { "id": "creps", "title": "Creps", "items": [
-      { "title": "Creps dolces", "items": [
-        { "name": "Nutella", "price": 6.55 },
-        { "name": "Crema de Lotus", "price": 6.55 },
-        { "name": "Xocolata negra", "price": 6.35 },
-        { "name": "Xocolata blanca", "price": 6.35 },
-        { "name": "Dulce de leche", "price": 5.95 },
-        { "name": "Licor flamejat", "price": 5.90 }
-      ]},
-      { "title": "Creps salades", "items": [
-        { "name": "Especial", "desc": "ou, pernil dolç i formatge", "price": 6.55 },
-        { "name": "Pernil ibèric i formatge", "price": 6.55 },
-        { "name": "Pernil dolç i formatge", "price": 6.45 },
-        { "name": "Sobrassada i formatge", "price": 5.85 }
-      ]}
+    { "id": "creps-salades", "title": "Crêppes salades", "items": [
+      { "name": "Especial", "desc": "ou, pernil dolç i formatge", "price": 6.55 },
+      { "name": "Pernil ibèric i formatge", "price": 6.55 },
+      { "name": "Pernil dolç i formatge", "price": 6.45 },
+      { "name": "Sobrassada i formatge", "price": 5.85 }
     ]},
     { "id": "begudes", "title": "Begudes", "subsections": [
       { "title": "Calents", "items": [
-        { "name": "Cafè amb llet", "desc": "cafè, llet", "price": 1.70 }
+        { "name": "Cafè amb llet", "desc": "Cafè, llet", "price": 1.70 }
       ]},
       { "title": "Cafès especials", "items": [
         { "name": "Cafè vienès", "desc": "cafè amb nata", "price": 4.65 },
-        { "name": "Cafè català", "desc": "cafè, torres i nata", "price": 5.15 },
+        { "name": "Cafè català", "desc": "cafè, Torres i nata", "price": 5.15 },
         { "name": "Irish coffee", "desc": "cafè, whisky i nata", "price": 7.25 },
-        { "name": "Calipso", "desc": "cafè, tia maria, nata i canyella", "price": 5.35 },
+        { "name": "Calipso", "desc": "cafè, Tia Maria, nata i canyella", "price": 5.35 },
         { "name": "Cafè escocès", "desc": "cafè, whisky i gelat de vainilla", "price": 7.25 }
       ]},
       { "title": "Vi blanc", "items": [
@@ -237,6 +151,14 @@
       ]}
     ]},
     { "id": "postres", "title": "Postres i Dolços", "subsections": [
+      { "title": "Crêppes dolces", "items": [
+        { "name": "Nutella", "price": 6.55 },
+        { "name": "Crema de Lotus", "price": 6.55 },
+        { "name": "Xocolata negra", "price": 6.35 },
+        { "name": "Xocolata blanca", "price": 6.35 },
+        { "name": "Dulce de leche", "price": 5.95 },
+        { "name": "Licor flamejat", "price": 5.90 }
+      ]},
       { "title": "Postres", "items": [
         { "name": "Gelat (2 boles: vainilla, xocolata, maduixa, torró)", "price": 5.00 },
         { "name": "Crocantí", "price": 5.00 },
@@ -252,42 +174,3 @@
     ]}
   ]
 }
-</script>
-
-  <footer class="section-bg">
-    <div class="footer-content">
-      <div class="footer-section">
-        <h3>Contacte</h3>
-        <p><i class="fas fa-phone"></i> 900 123 456</p>
-        <p><i class="fas fa-envelope"></i> info@crepnova.cat</p>
-      </div>
-      <div class="footer-section">
-        <h3>Segueix-nos</h3>
-        <div class="social-links">
-          <a href="https://www.instagram.com/crep_nova/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-        </div>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>&copy; Copyright 2025. Sota la reserva de tots els drets.</p>
-    </div>
-  </footer>
-</body>
-</html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

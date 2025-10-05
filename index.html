@@ -1,218 +1,238 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ca" dir="ltr">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="description" content="Crep Nova - Restaurant de creps i pizzes a Barcelona des de 1982. Gaudiu dels nostres productes artesans fets amb ingredients de qualitat.">
-	<meta name="keywords" content="creps, pizzes, restaurant, Barcelona, menjar a casa, menjar ràpid, cuina casolana">
-	<meta name="author" content="Crep Nova">
-	<title>Crep Nova | Restaurant de Creps i Pizzes a Barcelona</title>
-	<link rel="stylesheet" href="style.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-		<script src="js/header.js" defer></script>
+    <meta charset="UTF-8">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700;800;900&display=swap" rel="stylesheet">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Descobreix la carta Crep Nova: pizzes, creps, amanides, plats i begudes.">
+    <meta name="keywords" content="creps, pizzes, restaurant, Barcelona, menjar a casa, menjar ràpid, cuina casolana">
+    <meta name="author" content="Crep Nova">
+    <title>Crep Nova · Carta, Pizzes, Creps i més</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="js/header.js" defer></script>
+  <link rel="icon" href="/img/favicon.ico">
+  <meta property="og:title" content="Crep Nova">
+  <meta property="og:description" content="La nostra carta completa.">
+  <meta property="og:image" content="/img/og-card.jpg">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  "name": "Crep Nova",
+  "url": "https://example.com/",
+  "menu": "https://example.com/carta",
+  "servesCuisine": ["Mediterrània", "Italiana"],
+  "address": { "@type": "PostalAddress", "addressRegion": "Barcelona" }
+}
+</script>
 </head>
 <body>
-	<header class="header header--transparent">
-		<a href="#" class="logo">
-            <img src="img/logo.png" alt="Crep Nova Logo" class="logo-img">
+    <header class="header header--transparent">
+        <a href="#" class="logo">
+            <img src="img/logo.png" alt="Crep Nova" class="logo-img">
         </a>
-		<div class="menuToggle" onclick="toggleMenu()">
+        <div class="menuToggle" onclick="toggleMenu()">
             <span></span>
             <span></span>
             <span></span>
         </div>
-		<nav>
-			<ul class="navigation">
-				<li><a href="#banner" class="nav-link" onclick="toggleMenu()">Inici</a></li>
-				<li><a href="#about" class="nav-link" onclick="toggleMenu()">Sobre Nosaltres</a></li>
-				<li><a href="carta.html" class="nav-link" onclick="toggleMenu()">Carta</a></li>
-				<li><a href="#restaurants" class="nav-link" onclick="toggleMenu()">Restaurants</a></li>
-				<li><a href="order-online.html" class="nav-link" onclick="toggleMenu()">Demanar Online</a></li>
-				<li><a href="reservar.html" class="nav-link" onclick="toggleMenu()">Reservar</a></li>
-			</ul>
-		</nav>
-	</header>
-	<section class="banner" id="banner">
-		<div class="content">
-			<h2 class="fixed-title">Escull Sempre B&eacute;</h2>
-			<p>
-				Fundat al 1982, a Barcelona, CrepNova t'ofereix creps i pizzes de la millor qualitat.
-			</p>
-			<a href="carta.html" class="btn">Veure la Carta</a>
-		</div>
-	</section>
+        <nav>
+            <ul class="navigation">
+                <li><a href="#banner" class="nav-link" onclick="toggleMenu()">Inici</a></li>
+                <li><a href="#about" class="nav-link" onclick="toggleMenu()">Sobre Nosaltres</a></li>
+                <li><a href="carta.html" class="nav-link" onclick="toggleMenu()">Carta</a></li>
+                <li><a href="#restaurants" class="nav-link" onclick="toggleMenu()">Restaurants</a></li>
+                <li><a href="order-online.html" class="nav-link" onclick="toggleMenu()">Demanar Online</a></li>
+                <li><a href="reservar.html" class="nav-link" onclick="toggleMenu()">Reservar</a></li>
+            </ul>
+        </nav>
+    </header>
 
-	<section class="about section-bg" id="about">
-		<div class="row">
-			<div class="col50">
-				<h2 class="titleText"><span>S</span>obre Nosaltres</h2>
-				<p>
-					Crep Nova neix a Barcelona el 1982 amb una idea clara: fer creps i pizzes amb sabor de veritat, sense presses i amb producte bo. A l€™obrador preparem cada dia una massa que reposa lentament, la nostra salsa de tomàquet es cou a foc suau i coem les pizzes a alta temperatura perquè quedin cruixents per fora i esponjoses per dins.
-Les creps €”dolces i salades€” es fan al moment, amb una massa fina i lleugera que marida amb ingredients frescos de proximitat: formatges, verdures de temporada, embotits i salses casolanes.
-					<br><br>
-					Som un equip de gent apassionada per la cuina i el servei proper. Ens agrada que la carta sigui fàcil d€™entendre, amb opcions per a tots els gustos, i que cada visita sigui còmoda: tant si véns al restaurant com si prefereixes demanar online.
-					Si busques qualitat, tracte familiar i plats que sempre venen de gust, a Crep Nova t€™hi esperem. Bon profit! ðŸ•ðŸ¥ž				</p>
-			</div>
+    <section class="banner" id="banner">
+        <div class="content">
+            <h2 class="fixed-title">Escull Sempre Bé</h2>
+            <p>
+                Fundat el 1982, a Barcelona, Crep Nova t'ofereix creps i pizzes de la millor qualitat.
+            </p>
+            <a href="carta.html" class="btn">Veure la Carta</a>
+        </div>
+    </section>
 
-			<div class="col50">
-				<div class="imgBx">
-					<img src="img/img1.jpg" alt="Interior del restaurant Crep Nova" width="600" height="400" loading="lazy">
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<section class="specialties section-bg" id="menu">
-		<div class="title">
-			<h2 class="titleText"><span>E</span>specialitats de la <span>C</span>asa</h2>
-			<p class="subtitle">Descobreix les nostres creacions més destacades</p>
-		</div>
-
-		<div class="specialties-container">
-			<div class="specialty-card">
-				<div class="specialty-img">
-					<img src="img/menu4.jpg" alt="Pizzes Casolanes" loading="lazy">
-					<div class="specialty-overlay"></div>
-				</div>
-				<div class="specialty-content">
-					<h3>Pizzes Casolanes</h3>
-					<p>Les nostres pizzes artesanes amb massa fermentada i ingredients d'alta qualitat.</p>
-					<a href="carta.html#pizzes" class="specialty-btn">Veure pizzes <span>†’</span></a>
-				</div>
-			</div>
-
-			<div class="specialty-card">
-				<div class="specialty-img">
-					<img src="img/menu2.jpg" alt="Els Nostres Creps" loading="lazy">
-					<div class="specialty-overlay"></div>
-				</div>
-				<div class="specialty-content">
-					<h3>Els Nostres Creps</h3>
-					<p>Deliciosos creps dolços i salats, fets al moment amb massa casolana.</p>
-					<a href="carta.html#creps-salades" class="specialty-btn">Veure creps <span>†’</span></a>
-				</div>
-			</div>
-
-			<div class="specialty-card">
-				<div class="specialty-img">
-					<img src="img/menu3.jpg" alt="Amanides de la Casa" loading="lazy">
-					<div class="specialty-overlay"></div>
-				</div>
-				<div class="specialty-content">
-					<h3>Amanides de la Casa</h3>
-					<p>Refresquents i saludables, amb ingredients de temporada i nostres salses exclusives.</p>
-					<a href="carta.html#amanides" class="specialty-btn">Veure amanides <span>†’</span></a>
-				</div>
-			</div>
-
-			<div class="specialty-card">
-				<div class="specialty-img">
-					<img src="img/menu1.jpg" alt="Plats Combinats" loading="lazy">
-					<div class="specialty-overlay"></div>
-				</div>
-				<div class="specialty-content">
-					<h3>Plats Combinats</h3>
-					<p>Els nostres millors plats combinats amb ingredients frescos i casolans.</p>
-					<a href="carta.html#plats" class="specialty-btn">Veure plats <span>†’</span></a>
-				</div>
-			</div>
-		</div>
-
-		<div class="cta-container">
-			<a href="carta.html" class="btn btn-outline">Descobreix la nostra carta completa</a>
-		</div>
-	</section>
-
-	<section class="restaurants section-bg" id="restaurants">
-    <div class="title">
-        <h2 class="titleText"><span>R</span>estaurants <span>D</span>estacats</h2>
-        <p>Descobreix els Crep Nova que tens aprop teu</p>
-    </div>
-    <div class="restaurants-container">
-        <div class="restaurants-grid">
-            <!-- Restaurante 1 -->
-            <div class="restaurant-card">
-                <div class="restaurant-img">
-                    <img src="img/restaurant1.jpg" alt="Crep Nova Dr. Fleming" loading="lazy">
-                </div>
-                <div class="restaurant-info">
-                    <h3>Crep Nova Dr. Fleming</h3>
-                    <div class="info-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span>Doctor Fleming 15, 08017 Barcelona</span>
-                    </div>
-                    <div class="info-item">
-                        <i class="far fa-clock"></i>
-                        <span>12:00 - 23:30 (Tots els dies)</span>
-                    </div>
-                    <div class="info-item">
-                        <i class="fas fa-phone"></i>
-                        <a href="tel:931886406">931 886 406</a>
-                    </div>
-                    <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" class="btn-map">
-                        <i class="fas fa-map-marked-alt"></i> Veure al mapa
-                    </a>
-                </div>
+    <section class="about section-bg" id="about">
+        <div class="row">
+            <div class="col50">
+                <h2 class="titleText"><span>S</span>obre Nosaltres</h2>
+                <p>
+                    Crep Nova neix a Barcelona el 1982 amb una idea clara: fer creps i pizzes amb sabor de veritat, sense presses i amb producte bo. A l'obrador preparem cada dia una massa que reposa lentament, la nostra salsa de tomàquet es cou a foc suau i coem les pizzes a alta temperatura perquè quedin cruixents per fora i esponjoses per dins.
+                    Les creps —dolces i salades— es fan al moment, amb una massa fina i lleugera que marida amb ingredients frescos de proximitat: formatges, verdures de temporada, embotits i salses casolanes.
+                    <br><br>
+                    Som un equip de gent apassionada per la cuina i el servei proper. Ens agrada que la carta sigui fàcil d'entendre, amb opcions per a tots els gustos, i que cada visita sigui còmoda: tant si véns al restaurant com si prefereixes demanar online.
+                    Si busques qualitat, tracte familiar i plats que sempre venen de gust, a Crep Nova t'hi esperem. Bon profit!
+                </p>
             </div>
 
-            <!-- Restaurante 2 -->
-            <div class="restaurant-card">
-                <div class="restaurant-img">
-                    <img src="img/restaurant2.jpg" alt="Crep Nova Pedralbes" loading="lazy">
-                </div>
-                <div class="restaurant-info">
-                    <h3>Crep Nova Pedralbes</h3>
-                    <div class="info-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span>Dr. August Pi i Sunyer 12, 08034 Barcelona</span>
-                    </div>
-                    <div class="info-item">
-                        <i class="far fa-clock"></i>
-                        <span>12:00 - 23:30 (Tots els dies)</span>
-                    </div>
-                    <div class="info-item">
-                        <i class="fas fa-phone"></i>
-                        <a href="tel:937648836">937 648 836</a>
-                    </div>
-                    <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" class="btn-map">
-                        <i class="fas fa-map-marked-alt"></i> Veure al mapa
-                    </a>
-                </div>
-            </div>
-
-            <!-- Restaurante 3 -->
-            <div class="restaurant-card">
-                <div class="restaurant-img">
-                    <img src="img/restaurant3.jpg" alt="Crep Nova Sarrià" loading="lazy">
-                </div>
-                <div class="restaurant-info">
-                    <h3>Crep Nova Sarrià</h3>
-                    <div class="info-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span>Passeig Bonanova 104, 08017 Barcelona</span>
-                    </div>
-                    <div class="info-item">
-                        <i class="far fa-clock"></i>
-                        <span>12:00 - 23:30 (Tots els dies)</span>
-                    </div>
-                    <div class="info-item">
-                        <i class="fas fa-phone"></i>
-                        <a href="tel:932059646">932 059 646</a>
-                    </div>
-                    <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" class="btn-map">
-                        <i class="fas fa-map-marked-alt"></i> Veure al mapa
-                    </a>
+            <div class="col50">
+                <div class="imgBx">
+                    <img src="img/img1.jpg" alt="Interior del restaurant Crep Nova" width="600" height="400" loading="lazy">
                 </div>
             </div>
         </div>
+    </section>
+
+    <section class="specialties section-bg" id="menu">
+        <div class="title">
+            <h2 class="titleText"><span>E</span>specialitats de la <span>C</span>asa</h2>
+            <p class="subtitle">Descobreix les nostres creacions més destacades</p>
+        </div>
+
+        <div class="specialties-container">
+            <div class="specialty-card">
+                <div class="specialty-img">
+                    <img src="img/menu4.jpg" alt="Pizzes Casolanes" loading="lazy">
+                    <div class="specialty-overlay"></div>
+                </div>
+                <div class="specialty-content">
+                    <h3>Pizzes Casolanes</h3>
+                    <p>Les nostres pizzes artesanes amb massa fermentada i ingredients d'alta qualitat.</p>
+                    <a href="carta.html#pizzes" class="specialty-btn">Veure pizzes <span>&rsaquo;</span></a>
+                </div>
+            </div>
+
+            <div class="specialty-card">
+                <div class="specialty-img">
+                    <img src="img/menu2.jpg" alt="Els Nostres Creps" loading="lazy">
+                    <div class="specialty-overlay"></div>
+                </div>
+                <div class="specialty-content">
+                    <h3>Els Nostres Creps</h3>
+                    <p>Deliciosos creps dolços i salats, fets al moment amb massa casolana.</p>
+                    <a href="carta.html#creps" class="specialty-btn">Veure creps <span>&rsaquo;</span></a>
+                </div>
+            </div>
+
+            <div class="specialty-card">
+                <div class="specialty-img">
+                    <img src="img/menu3.jpg" alt="Amanides de la Casa" loading="lazy">
+                    <div class="specialty-overlay"></div>
+                </div>
+                <div class="specialty-content">
+                    <h3>Amanides de la Casa</h3>
+                    <p>Refresquents i saludables, amb ingredients de temporada i nostres salses exclusives.</p>
+                    <a href="carta.html#amanides" class="specialty-btn">Veure amanides <span>&rsaquo;</span></a>
+                </div>
+            </div>
+
+            <div class="specialty-card">
+                <div class="specialty-img">
+                    <img src="img/menu1.jpg" alt="Plats Combinats" loading="lazy">
+                    <div class="specialty-overlay"></div>
+                </div>
+                <div class="specialty-content">
+                    <h3>Plats Combinats</h3>
+                    <p>Els nostres millors plats combinats amb ingredients frescos i casolans.</p>
+                    <a href="carta.html#plats" class="specialty-btn">Veure plats <span>&rsaquo;</span></a>
+                </div>
+            </div>
+        </div>
+
         <div class="cta-container">
-            <a href="restaurants.html" class="btn btn-outline">Veure tots els restaurants</a>
+            <a href="carta.html" class="btn btn-outline">Descobreix la nostra carta completa</a>
         </div>
-    </div>
-</section>
+    </section>
 
+    <section class="restaurants section-bg" id="restaurants">
+        <div class="title">
+            <h2 class="titleText"><span>R</span>estaurants <span>D</span>estacats</h2>
+            <p>Descobreix els Crep Nova que tens aprop teu</p>
+        </div>
+        <div class="restaurants-container">
+            <div class="restaurants-grid">
+                <!-- Restaurante 1 -->
+                <div class="restaurant-card">
+                    <div class="restaurant-img">
+                        <img src="img/restaurant1.jpg" alt="Crep Nova Dr. Fleming" loading="lazy">
+                    </div>
+                    <div class="restaurant-info">
+                        <h3>Crep Nova Dr. Fleming</h3>
+                        <div class="info-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Doctor Fleming 15, 08017 Barcelona</span>
+                        </div>
+                        <div class="info-item">
+                            <i class="far fa-clock"></i>
+                            <span>12:00 - 23:30 (Tots els dies)</span>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-phone"></i>
+                            <a href="tel:931886406">931 886 406</a>
+                        </div>
+                        <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" class="btn-map">
+                            <i class="fas fa-map-marked-alt"></i> Veure al mapa
+                        </a>
+                    </div>
+                </div>
 
+                <!-- Restaurante 2 -->
+                <div class="restaurant-card">
+                    <div class="restaurant-img">
+                        <img src="img/restaurant2.jpg" alt="Crep Nova Pedralbes" loading="lazy">
+                    </div>
+                    <div class="restaurant-info">
+                        <h3>Crep Nova Pedralbes</h3>
+                        <div class="info-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Dr. August Pi i Sunyer 12, 08034 Barcelona</span>
+                        </div>
+                        <div class="info-item">
+                            <i class="far fa-clock"></i>
+                            <span>12:00 - 23:30 (Tots els dies)</span>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-phone"></i>
+                            <a href="tel:937648836">937 648 836</a>
+                        </div>
+                        <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" class="btn-map">
+                            <i class="fas fa-map-marked-alt"></i> Veure al mapa
+                        </a>
+                    </div>
+                </div>
 
+                <!-- Restaurante 3 -->
+                <div class="restaurant-card">
+                    <div class="restaurant-img">
+                        <img src="img/restaurant3.jpg" alt="Crep Nova Sarrià" loading="lazy">
+                    </div>
+                    <div class="restaurant-info">
+                        <h3>Crep Nova Sarrià</h3>
+                        <div class="info-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Passeig Bonanova 104, 08017 Barcelona</span>
+                        </div>
+                        <div class="info-item">
+                            <i class="far fa-clock"></i>
+                            <span>12:00 - 23:30 (Tots els dies)</span>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-phone"></i>
+                            <a href="tel:932059646">932 059 646</a>
+                        </div>
+                        <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" class="btn-map">
+                            <i class="fas fa-map-marked-alt"></i> Veure al mapa
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="cta-container">
+                <a href="restaurants.html" class="btn btn-outline">Veure tots els restaurants</a>
+            </div>
+        </div>
+    </section>
 
     <footer class="section-bg">
         <div class="footer-content">
@@ -234,5 +254,3 @@ Les creps €”dolces i salades€” es fan al moment, amb una massa fina i ll
     </footer>
 </body>
 </html>
-
-

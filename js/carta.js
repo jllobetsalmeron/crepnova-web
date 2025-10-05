@@ -1,24 +1,24 @@
-﻿/* Carta page rendering */
+/* Carta page rendering */
 (function(){
   const root = document.getElementById('menuRoot');
   const search = document.getElementById('menuSearch');
   const tabs = document.querySelectorAll('.menu-tabs .tab');
+  let __originalOrderSet = false;
+  let __pinnedSectionId = null;   // secció \u201cfixada\u201d a dalt
 
   // Load data
   async function loadData(){
-    // 1) Preferir dades inline per assegurar català i evitar restriccions de fetch local
-    const inline = readInline();
-    if (inline) return inline;
-    // 2) Si hi ha servidor, provar JSON extern
-    try {
-      const res = await fetch('data/menu.json', {cache: 'no-cache'});
-      if (!res.ok) throw new Error('HTTP '+res.status);
-      return await res.json();
-    } catch (e) {
-      console.warn('No s\'ha pogut carregar data/menu.json. S\'usa demo.', e);
-      return demoData();
+  const inline = readInline();
+  try {
+    const res = await fetch('assets/data/menu.json', { cache: 'no-cache' });
+    if (res.ok) {
+      const data = await res.json();
+      if (data && data.sections && data.sections.length) return data;
     }
-  }
+  } catch(e){}
+  if (inline && inline.sections && inline.sections.length) return inline;
+  return demoData();
+}
 
   function readInline(){
     try {
@@ -96,10 +96,11 @@
 
   function render(data){
     root.innerHTML = '';
-    data.sections.forEach(section => {
+    data.sections.forEach((section, idx) => {
       const sec = document.createElement('section');
       sec.className = 'menu-section';
       sec.id = section.id;
+      sec.dataset.order = String(idx);
       const head = document.createElement('div');
       head.className = 'section-head';
       head.setAttribute('role','button');
@@ -116,22 +117,31 @@
       card.id = `${section.id}-card`;
 
       if (section.items){
-        card.appendChild(renderItems(section.items));
+        const plain=[]; const groups=[];
+        section.items.forEach(entry=>{
+          if (isItemGroup(entry)) groups.push(entry); else plain.push(entry);
+        });
+        if (plain.length) card.appendChild(renderItems(plain));
+        groups.forEach(sub=>appendSubsection(card, sub));
       }
       if (section.subsections){
-        section.subsections.forEach(sub => {
-          const wrap = document.createElement('div');
-          wrap.className = 'subsection';
-          const h3 = document.createElement('h3'); h3.textContent = sub.title; wrap.appendChild(h3);
-          wrap.appendChild(renderItems(sub.items));
-          card.appendChild(wrap);
-        });
+        section.subsections.forEach(sub=>appendSubsection(card, sub));
       }
 
       sec.appendChild(card);
       root.appendChild(sec);
     });
   }
+
+  function appendSubsection(card, sub){
+    const wrap = document.createElement('div'); wrap.className = 'subsection';
+    if (sub.title){ const h3 = document.createElement('h3'); h3.textContent = sub.title; wrap.appendChild(h3); }
+    if (sub.description){ const p = document.createElement('p'); p.className = 'subsection-desc'; p.textContent = sub.description; wrap.appendChild(p); }
+    const items = Array.isArray(sub.items) ? sub.items : [];
+    if (items.length) wrap.appendChild(renderItems(items));
+    card.appendChild(wrap);
+  }
+  function isItemGroup(entry){ return entry && typeof entry==='object' && !Array.isArray(entry) && Array.isArray(entry.items) && !('name' in entry); }
 
   function renderItems(items){
     const grid = document.createElement('div');
@@ -144,6 +154,8 @@
       const price = document.createElement('div'); price.className = 'item-price'; if (item.price!=null) price.textContent = formatPrice(item.price);
       row.appendChild(name); row.appendChild(price); div.appendChild(row);
       if (item.desc){ const p = document.createElement('div'); p.className = 'desc'; p.innerHTML = escapeHtml(item.desc); div.appendChild(p); }
+      const raw=[item.name,item.desc].filter(Boolean).join(' ');
+      div.setAttribute('data-terms', buildSearchTerms(raw));
       if (item.variants){
         const cont = document.createElement('div'); cont.className = 'variants';
         item.variants.forEach(v => {
@@ -164,44 +176,101 @@
   }
 }
 
-  // Search + highlight
-  function setupSearch(){
-    let q = '';
-    const handler = () => {
-      q = search.value.toLowerCase().trim();
-      const items = document.querySelectorAll('.menu-item');
-      const anyQuery = q.length>0;
-      items.forEach(el => {
-        const text = el.textContent.toLowerCase();
-        el.style.display = (!anyQuery || text.includes(q)) ? '' : 'none';
-        if (anyQuery) {
-          // expand all sections if searching
-          const sectionCard = el.closest('.menu-card');
-          if (sectionCard) sectionCard.style.display = '';
-          // highlight name/desc
-          ['.item-name', '.desc'].forEach(sel=>{
-            const node = el.querySelector(sel); if (!node) return;
-            const raw = node.textContent; node.innerHTML = highlight(raw, q);
-          });
-        } else {
-          // remove marks
-          ['.item-name', '.desc'].forEach(sel=>{
-            const node = el.querySelector(sel); if (!node) return; node.textContent = node.textContent;
-          });
-        }
-      });
-    };
-    search && search.addEventListener('input', debounce(handler, 120));
+  function sectionHasVisibleItems(sec){
+    const items = Array.from(sec.querySelectorAll('.menu-item'));
+    return items.some(el => el.style.display !== 'none');
   }
+
+  function reorderSectionsByMatch(q){
+    const sections = Array.from(document.querySelectorAll('.menu-section'));
+    if(!__originalOrderSet){
+      sections.forEach((s,i)=>{ if(!s.dataset.order) s.dataset.order = String(i); });
+      __originalOrderSet = true;
+    }
+    const pinned = __pinnedSectionId ? document.getElementById(__pinnedSectionId) : null;
+    if(!q){
+      const rest = sections.filter(s => s !== pinned);
+      rest.sort((a,b)=>Number(a.dataset.order)-Number(b.dataset.order));
+      const newOrder = pinned ? [pinned, ...rest] : rest;
+      newOrder.forEach(s => root.appendChild(s));
+      return;
+    }
+    const hasVisible = s => Array.from(s.querySelectorAll('.menu-item')).some(it => it.style.display !== 'none');
+    const matched = sections.filter(s => s !== pinned && hasVisible(s))
+                          .sort((a,b)=>Number(a.dataset.order)-Number(b.dataset.order));
+    const unmatched = sections.filter(s => s !== pinned && !hasVisible(s))
+                            .sort((a,b)=>Number(a.dataset.order)-Number(b.dataset.order));
+    const newOrder = pinned ? [pinned, ...matched, ...unmatched] : [...matched, ...unmatched];
+    newOrder.forEach(s => root.appendChild(s));
+  }
+
+  // Oculta cada .subsection si no li queda cap .menu-item visible.
+  function updateSubsectionsVisibility(){
+    const subs = document.querySelectorAll('.subsection');
+    subs.forEach(sub => {
+      const items = Array.from(sub.querySelectorAll('.menu-item'));
+      const hasVisible = items.some(it => it.style.display !== 'none');
+      sub.style.display = hasVisible ? '' : 'none';
+    });
+  }
+
+  // Oculta la .menu-card d'una secció si no hi ha cap .menu-item visible en tota la secció
+  // (ni dins de subseccions ni fora).
+  function updateSectionCardsVisibility(){
+    document.querySelectorAll('.menu-section').forEach(sec => {
+      const card = sec.querySelector('.menu-card');
+      if (!card) return;
+      const visibleItems = Array.from(card.querySelectorAll('.menu-item'))
+        .some(it => it.style.display !== 'none');
+      card.style.display = visibleItems ? '' : 'none';
+    });
+  }
+
+  // Search + highlight (diacritics-insensitive, matches ingredients)
+  function setupSearch(){
+    const handler=()=>{
+      const qRaw=(search?.value||'').trim(); const q=normalize(qRaw);
+      document.querySelectorAll('.menu-item').forEach(el=>{
+        const terms=el.getAttribute('data-terms')||'';
+        const match=!q||terms.includes(q); el.style.display=match?'':'none';
+        if(match){ const s=el.closest('.menu-section'); if(s) s.classList.remove('collapsed'); }
+        const n=el.querySelector('.item-name'), d=el.querySelector('.desc');
+        if(q){ if(n) n.innerHTML=highlightInsensitive(n.textContent,qRaw); if(d) d.innerHTML=highlightInsensitive(d.textContent,qRaw); }
+        else { if(n) n.textContent=n.textContent; if(d) d.textContent=d.textContent; }
+      });
+      updateSubsectionsVisibility();
+      updateSectionCardsVisibility();
+      reorderSectionsByMatch(q);
+    };
+    if(search){ search.addEventListener('input',handler); search.addEventListener('change',handler); }
+  }
+
 
   function debounce(fn, ms){ let t; return (...a)=>{ clearTimeout(t); t=setTimeout(()=>fn(...a), ms); } }
 
   function escapeHtml(s){ return (s||'').replace(/[&<>]/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c])); }
-  function highlight(text, q){
-    if (!q) return escapeHtml(text);
-    const re = new RegExp('('+q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+')','ig');
-    return escapeHtml(text).replace(re,'<mark>$1</mark>');
+  function removeDiacritics(s){return (s||'').normalize('NFD').replace(/\p{Diacritic}/gu,'');}
+  function normalize(s){return removeDiacritics((s||'').toLowerCase());}
+  function addSynonyms(text){
+    const t=' '+normalize(text)+' '; const ex=[];
+    if (t.includes(' ruca ')) ex.push(' rucula rúcula ');
+    if (t.includes(' pernil dolc ')||t.includes(' york ')) ex.push(' pernil dolc york ');
+    if (t.includes(' taperes ')) ex.push(' alcaparres ');
+    if (t.includes(' escalivada ')) ex.push(' pebrot alberginia ceba ');
+    if (t.includes(' pepperoni ')) ex.push(' salami picant ');
+    if (t.includes(' tofona ')) ex.push(' trufa ');
+    return ex.join(' ');
   }
+  function buildSearchTerms(src){const b=normalize(src);return (b+' '+addSynonyms(src)).replace(/\s+/g,' ').trim();}
+  function highlightInsensitive(text,qRaw){
+    if(!qRaw) return text.replace(/[&<>]/g,m=>({ '&':'&amp;','<':'&lt;','>':'&gt;'}[m]));
+    const esc=t=>t.replace(/[&<>]/g,m=>({ '&':'&amp;','<':'&lt;','>':'&gt;'}[m]));
+    const q=removeDiacritics(qRaw).replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
+    const src=removeDiacritics(text); let out='',i=0,m,rx=new RegExp(q,'ig');
+    while((m=rx.exec(src))){out+=esc(text.slice(i,m.index))+'<mark>'+esc(text.slice(m.index,m.index+m[0].length))+'</mark>';i=m.index+m[0].length;}
+    return out+esc(text.slice(i));
+  }
+
 
   // Tabs active on scroll
   function setupTabs(){
@@ -215,6 +284,50 @@
       });
     }, { rootMargin: '-30% 0px -60% 0px', threshold: 0.01 });
     document.querySelectorAll('.menu-section').forEach(s => io.observe(s));
+  }
+
+
+
+  function getHeaderH(){const h=document.querySelector('.header');return h?h.getBoundingClientRect().height:0;}
+  function getTabsH(){const t=document.querySelector('.menu-tabs');return t?t.getBoundingClientRect().height:0;}
+  function scrollToId(id){
+    const el=document.getElementById(id); if(!el) return;
+    const y=window.pageYOffset+el.getBoundingClientRect().top-getHeaderH()-getTabsH()-8;
+    window.scrollTo({top:Math.max(0,y),behavior:'smooth'});
+  }
+  function setupTabClicks(){
+    document.querySelectorAll('.menu-tabs .tab[href^="#"]').forEach(a=>{
+      a.addEventListener('click', e=>{
+        const id = a.getAttribute('href').slice(1);
+        const sec = document.getElementById(id);
+        if (!sec) return;
+
+        e.preventDefault();                 // no hash ni navegació
+        __pinnedSectionId = id;             // fixa la secció clicada a dalt
+        sec.classList.remove('collapsed');  // assegura-la oberta
+
+        // Reordena respectant la cerca actual
+        const q = normalize((search?.value || '').trim());
+        reorderSectionsByMatch(q);
+
+        // Marca la pestanya com activa
+        document.querySelectorAll('.menu-tabs .tab').forEach(t=>t.classList.remove('active'));
+        a.classList.add('active');
+
+        // ---- SCROLL NOMÉS CAP AMUNT ----
+        requestAnimationFrame(() => {
+          const currentY = window.pageYOffset || document.documentElement.scrollTop || 0;
+          const targetY = Math.max(
+            0,
+            window.pageYOffset + sec.getBoundingClientRect().top - getHeaderH() - getTabsH() - 8
+          );
+          const THRESHOLD = 6;
+          if ((currentY - targetY) > THRESHOLD) {
+            window.scrollTo({ top: targetY, behavior: 'smooth' });
+          }
+        });
+      });
+    });
   }
 
   // Toggle collapse
@@ -233,16 +346,25 @@
     });
   }
 
+
+
   // Init
-  loadData().then(data => { render(data); setupTabs(); });
+  loadData().then(data => {
+    render(data);
+    setupTabs();
+    setupTabClicks();
+    const legacy=['#creps-salades','#creps-dolces'];
+    if(legacy.includes(location.hash)) history.replaceState(null,'','#creps');
+    if(location.hash) scrollToId(location.hash.slice(1));
+  });
   setupSearch();
   setupToggles();
 
-  // Jump to anchor if present
-  if (location.hash){
-    const el = document.getElementById(location.hash.slice(1)); if (el) el.scrollIntoView();
-  }
 })();
+
+
+
+
 
 
 

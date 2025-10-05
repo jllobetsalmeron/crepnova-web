@@ -1,7 +1,7 @@
-﻿/* --- Carta (Menu) Page Styles --- */
+/* --- Carta (Menu) Page Styles --- */
 .menu-hero {
   position: relative;
-  padding: 140px 20px 80px;
+  padding: 140px 20px 36px;  /* abans 80px: tabs més a prop del cercador */
   text-align: center;
   color: #fff;
 }
@@ -20,16 +20,32 @@
 .menu-search input { width: 100%; padding: 12px 14px 12px 40px; border: 1px solid #ddd; border-radius: 8px; font-size: 1rem; }
 
 /* Sticky tabs */
-.menu-tabs { position: sticky; top: calc(var(--header-h,80px) - 2px); z-index: 50; backdrop-filter: blur(6px); background: rgba(0,0,0,.55); border-top: 1px solid rgba(255,255,255,.15); border-bottom: 1px solid rgba(255,255,255,.15); }
-.tabs-scroller { display: flex; gap: 4px; overflow-x: auto; padding: 6px 10px; justify-content: center; }
+:root { --tabs-h: 44px; }
+.menu-tabs { position: sticky; top: calc(var(--header-h,80px) - 2px); z-index: 50; backdrop-filter: blur(6px); background: rgba(0,0,0,.55); border-top: 1px solid rgba(255,255,255,.15); border-bottom: 1px solid rgba(255,255,255,.15);
+  margin-bottom: 28px;   /* nou: més espai fins a la primera secció */
+}
+.tabs-scroller {
+  display: flex;
+  gap: 4px;
+  overflow-x: auto;
+  padding: 6px 20px 6px 20px;  /* més aire a l'esquerra i dreta */
+  justify-content: center;
+}
 .tabs-scroller .tab { color: #fff; text-decoration: none; padding: 6px 12px; border: 1px solid rgba(255,255,255,.25); border-radius: 16px; white-space: nowrap; transition: all .2s ease; display: inline-flex; align-items: center; justify-content: center; }
 .tabs-scroller .tab:hover, .tabs-scroller .tab.active { background: rgba(0,0,0,.5); border-color: rgba(255,255,255,.45); transform: translateY(-1px); }
 
 /* Container */
-.menu-container { max-width: 1100px; margin: 12px auto 40px; padding: 0 20px; }
+.menu-container {
+  max-width: 1100px;
+  margin: 8px auto 20px;
+  padding: 0 20px;
+}
 
 /* Section */
-.menu-section { margin: 8px 0 14px; }
+.menu-section {
+  margin: 4px 0 8px;
+  scroll-margin-top: calc(var(--header-h,80px) + var(--tabs-h,44px) + 8px);
+}
 .menu-section .section-head { display:flex; align-items:center; justify-content:space-between; gap: 12px; margin-bottom: 10px; cursor: pointer; user-select: none; }
 .menu-section h2 { color: #fff; margin: 0; font-size: 2rem; text-shadow: 0 2px 8px rgba(0,0,0,.35); }
 .menu-section h2::first-letter { color: #ff0157; }
@@ -122,4 +138,11 @@ footer.section-bg::before { display: none; }
 .social-links a:hover { color: #ff6b6b; transform: translateY(-3px); }
 .footer-bottom { text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,.3); position: relative; z-index: 1; font-size: .9rem; color: white; }
 .footer-bottom p { color: white; margin: 0; }
+
+/* Reducció de padding només per a les seccions de la carta */
+.menu-section {
+  padding: 20px 0;   /* pots ajustar 20px a 10px si vols encara més compacte */
+}
+
+
 
