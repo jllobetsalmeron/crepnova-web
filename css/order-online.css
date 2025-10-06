@@ -1,4 +1,4 @@
-﻿/* Page background */
+/* Page background */
 body.order-page {
     background: url('../img/fons-seccio.jpg') no-repeat center center fixed;
     background-size: cover;
@@ -85,45 +85,62 @@ body.section-bg {
 }
 
 /* Hero Section */
+.order-hero {
+    position: relative;
+    background: linear-gradient(var(--hero-overlay-strong), var(--hero-overlay-soft)), url('../img/fons-seccio.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+}
+
 .restaurants-hero {
     position: relative;
-    color: white;
+    background: linear-gradient(var(--hero-overlay-strong), var(--hero-overlay-soft)), url('../img/fons-seccio.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
-    padding: 140px 20px 100px;
-    margin-top: 80px;
+    color: #fff;
 }
 
-.restaurants-hero .overlay {
+.order-hero::before {
+    content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6));
+    inset: 0;
+    background: linear-gradient(var(--hero-overlay-strong), var(--hero-overlay-soft));
     z-index: 0;
-}
-
-.restaurants-hero .hero-content {
-    position: relative;
-    z-index: 1;
 }
 
 .restaurants-hero::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.45);
+    inset: 0;
+    background: linear-gradient(var(--hero-overlay-strong), var(--hero-overlay-soft));
+    z-index: 0;
+}
+
+.order-hero .hero-content {
+    position: relative;
     z-index: 1;
+    max-width: 900px;
+    margin: 0 auto;
 }
 
 .restaurants-hero .hero-content {
     position: relative;
-    z-index: 2;
-    max-width: 800px;
-    margin: 0 auto 40px;
+    z-index: 1;
+    max-width: 900px;
+    margin: 0 auto;
 }
 
 .restaurants-hero h1 {

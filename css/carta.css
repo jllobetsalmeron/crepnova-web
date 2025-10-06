@@ -4,11 +4,15 @@
   padding: 140px 20px 36px;  /* abans 80px: tabs més a prop del cercador */
   text-align: center;
   color: #fff;
+  background: linear-gradient(var(--hero-overlay-strong), var(--hero-overlay-soft)), url('../img/fons-seccio.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
 }
 .menu-hero::before{
   content: '';
   position: absolute; inset: 0;
-  background: linear-gradient(rgba(0,0,0,.25), rgba(0,0,0,.15));
+  background: linear-gradient(var(--hero-overlay-strong), var(--hero-overlay-soft));
   z-index: 0;
 }
 .menu-hero .hero-content { max-width: 900px; margin: 0 auto; position: relative; z-index: 1; }
@@ -143,6 +147,4 @@ footer.section-bg::before { display: none; }
 .menu-section {
   padding: 20px 0;   /* pots ajustar 20px a 10px si vols encara més compacte */
 }
-
-
 

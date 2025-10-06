@@ -1,0 +1,23 @@
+.page-404 {
+  position: relative;
+  padding: 140px 20px 36px;
+  text-align: center;
+  color: #fff;
+  background: linear-gradient(var(--hero-overlay-strong), var(--hero-overlay-soft)), url('../img/fons-seccio.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.page-404::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(var(--hero-overlay-strong), var(--hero-overlay-soft));
+  z-index: 0;
+}
+
+.page-404 > * {
+  position: relative;
+  z-index: 1;
+}

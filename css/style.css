@@ -1213,6 +1213,8 @@ section
 
 /* Scroll margin for anchor links */
 :root {
+  --hero-overlay-strong: rgba(0,0,0,0.25);
+  --hero-overlay-soft: rgba(0,0,0,0.15);
   --header-h: 80px;
   --anchor-extra: 0.25px;  /* espai gairebé imperceptible */
 }
